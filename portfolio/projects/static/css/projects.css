@@ -1,0 +1,325 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  font-family: sans-serif;
+  vertical-align: baseline;
+  color: black; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+.button, .project-detail .links .link, .projects .project {
+  transition: all 0.1s ease;
+  background-color: #D0D0D0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.75); }
+  .button:hover, .project-detail .links .link:hover, .projects .project:hover {
+    transform: translateY(-1px);
+    background-color: #F0F0F0;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.75); }
+  .button:active, .project-detail .links .link:active, .projects .project:active {
+    transform: translateY(2px);
+    background-color: #C0C0C0;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.75); }
+
+.markdown, .project-detail .description {
+  line-height: 1.5em; }
+  .markdown *:first-child, .project-detail .description *:first-child {
+    margin-top: 0; }
+  .markdown *:last-child, .project-detail .description *:last-child {
+    margin-bottom: 0; }
+  .markdown p, .project-detail .description p {
+    margin: 0.5em 0; }
+  .markdown h1, .project-detail .description h1, .markdown h2, .project-detail .description h2, .markdown h3, .project-detail .description h3, .markdown h4, .project-detail .description h4, .markdown h5, .project-detail .description h5, .markdown h6, .project-detail .description h6 {
+    font-weight: bold;
+    margin: 1em 0 0.5em 0; }
+  .markdown h1, .project-detail .description h1 {
+    font-size: 1.75em; }
+  .markdown h2, .project-detail .description h2 {
+    font-size: 1.5em; }
+  .markdown h3, .project-detail .description h3 {
+    font-size: 1.25em; }
+  .markdown h4, .project-detail .description h4 {
+    font-size: 1em; }
+  .markdown h5, .project-detail .description h5 {
+    font-size: 0.9em; }
+  .markdown h6, .project-detail .description h6 {
+    font-size: 0.75em; }
+  .markdown ul, .project-detail .description ul, .markdown ol, .project-detail .description ol {
+    padding-left: 2em; }
+  .markdown ul, .project-detail .description ul {
+    list-style-type: disc; }
+  .markdown ol, .project-detail .description ol {
+    list-style-type: decimal; }
+  .markdown code, .project-detail .description code {
+    font-family: monospace; }
+  .markdown pre, .project-detail .description pre {
+    white-space: pre-wrap;
+    line-height: 1.1em; }
+  .markdown blockquote, .project-detail .description blockquote {
+    padding: 0 1em;
+    border-left: 4px solid #D0D0D0; }
+  .markdown em, .project-detail .description em {
+    font-style: italic; }
+  .markdown strong, .project-detail .description strong {
+    font-weight: bold; }
+  .markdown hr, .project-detail .description hr {
+    border: 0;
+    margin: 1em 0;
+    border-top: 2px solid #D0D0D0; }
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  font-family: sans-serif;
+  vertical-align: baseline;
+  color: black; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+.button, .project-detail .links .link, .projects .project {
+  transition: all 0.1s ease;
+  background-color: #D0D0D0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.75); }
+  .button:hover, .project-detail .links .link:hover, .projects .project:hover {
+    transform: translateY(-1px);
+    background-color: #F0F0F0;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.75); }
+  .button:active, .project-detail .links .link:active, .projects .project:active {
+    transform: translateY(2px);
+    background-color: #C0C0C0;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.75); }
+
+.markdown, .project-detail .description {
+  line-height: 1.5em; }
+  .markdown *:first-child, .project-detail .description *:first-child {
+    margin-top: 0; }
+  .markdown *:last-child, .project-detail .description *:last-child {
+    margin-bottom: 0; }
+  .markdown p, .project-detail .description p {
+    margin: 0.5em 0; }
+  .markdown h1, .project-detail .description h1, .markdown h2, .project-detail .description h2, .markdown h3, .project-detail .description h3, .markdown h4, .project-detail .description h4, .markdown h5, .project-detail .description h5, .markdown h6, .project-detail .description h6 {
+    font-weight: bold;
+    margin: 1em 0 0.5em 0; }
+  .markdown h1, .project-detail .description h1 {
+    font-size: 1.75em; }
+  .markdown h2, .project-detail .description h2 {
+    font-size: 1.5em; }
+  .markdown h3, .project-detail .description h3 {
+    font-size: 1.25em; }
+  .markdown h4, .project-detail .description h4 {
+    font-size: 1em; }
+  .markdown h5, .project-detail .description h5 {
+    font-size: 0.9em; }
+  .markdown h6, .project-detail .description h6 {
+    font-size: 0.75em; }
+  .markdown ul, .project-detail .description ul, .markdown ol, .project-detail .description ol {
+    padding-left: 2em; }
+  .markdown ul, .project-detail .description ul {
+    list-style-type: disc; }
+  .markdown ol, .project-detail .description ol {
+    list-style-type: decimal; }
+  .markdown code, .project-detail .description code {
+    font-family: monospace; }
+  .markdown pre, .project-detail .description pre {
+    white-space: pre-wrap;
+    line-height: 1.1em; }
+  .markdown blockquote, .project-detail .description blockquote {
+    padding: 0 1em;
+    border-left: 4px solid #D0D0D0; }
+  .markdown em, .project-detail .description em {
+    font-style: italic; }
+  .markdown strong, .project-detail .description strong {
+    font-weight: bold; }
+  .markdown hr, .project-detail .description hr {
+    border: 0;
+    margin: 1em 0;
+    border-top: 2px solid #D0D0D0; }
+
+.project-detail {
+  height: 100%;
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column; }
+  .project-detail .title {
+    font-size: 2em;
+    font-weight: bold; }
+  .project-detail .images {
+    height: 200px;
+    margin: 20px 0;
+    position: relative;
+    display: flex;
+    transition: left 0.5s ease; }
+    .project-detail .images .image {
+      margin: 0 10px;
+      cursor: pointer;
+      transition: box-shadow 0.1s ease; }
+      .project-detail .images .image img {
+        height: 200px; }
+      .project-detail .images .image:first-child {
+        margin-left: 0; }
+      .project-detail .images .image:last-child {
+        margin-right: 0; }
+      .project-detail .images .image:hover {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); }
+  .project-detail .description {
+    overflow-y: auto; }
+  .project-detail .links {
+    display: flex;
+    margin-top: 20px; }
+    .project-detail .links .link {
+      padding: 10px;
+      margin: 0 10px;
+      text-decoration: none;
+      color: none;
+      border-radius: 4px; }
+      .project-detail .links .link:first-child {
+        margin-left: 0; }
+      .project-detail .links .link:last-child {
+        margin-right: 0; }
+  .project-detail .view-image {
+    position: fixed;
+    display: flex;
+    margin: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: opacity 0.25s ease;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none; }
+    .project-detail .view-image.active {
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto; }
+    .project-detail .view-image img {
+      margin: auto;
+      height: initial;
+      width: initial;
+      max-height: 100%;
+      max-width: 100%;
+      box-shadow: 0 0 16px rgba(0, 0, 0, 0.75); }
+
+.projects .project {
+  width: 200px;
+  height: 365px;
+  display: inline-flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin: 10px;
+  border-radius: 8px;
+  cursor: pointer; }
+  .projects .project .image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; }
+  .projects .project .title {
+    margin: 10px 10px 5px 10px;
+    font-size: 14pt;
+    font-weight: bold; }
+  .projects .project .description {
+    margin: 0 10px 10px 10px;
+    overflow: hidden;
+    flex: 1;
+    line-height: 1.25em; }
+
+.project-detail-container {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: opacity 0.25s ease;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none; }
+  .project-detail-container.active {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto; }
+
+/*# sourceMappingURL=projects.css.map */

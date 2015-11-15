@@ -1,0 +1,5 @@
+# Ignore all media
+*
+
+# Don't ignore this file
+!.gitignore

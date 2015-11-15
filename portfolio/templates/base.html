@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% block head %}
+    <title>Default Title</title>
+    {% endblock %}
+</head>
+
+<body>
+    <div class="header">
+        {% block header %}
+        <ul>
+            <li><a href="{% url 'projects' %}">Projects</li>
+        </ul>
+        {% endblock %}
+    </div>
+
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+
+</html>

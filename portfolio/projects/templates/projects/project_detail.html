@@ -1,0 +1,21 @@
+<div class="project-detail" project-id="{{ project.id }}">
+    <h2 class="title">{{ project.title }}</h2>
+    <ul class="images" active-image="0">
+    {% for image in project.images.all %}
+        <li class="image"><img src="{{ MEDIA_URL }}{{ image.image }}"></li>
+    {% endfor %}
+    </ul>
+    <div class="description nano">
+        <div class="nano-content">
+            {{ project.description_html|safe }}
+        </div>
+    </div>
+    <div class="links">
+        {% for link in project.links.all %}
+        <a class="link" href="{{ link.url }}">{{ link.label }}</a>
+        {% endfor %}
+    </div>
+    <div class="view-image">
+        <img>
+    </div>
+</div>

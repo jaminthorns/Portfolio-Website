@@ -1,0 +1,60 @@
+@import 'base';
+@import 'project_detail';
+
+$project-width: 200px;
+$project-height: 365px;
+$project-image-height: 200px;
+
+.projects {
+
+    .project {
+        @extend .button;
+
+        width: $project-width;
+        height: $project-height;
+        display: inline-flex;
+        flex-direction: column;
+        overflow: hidden;
+        margin: 10px;
+        border-radius: 8px;
+        cursor: pointer;
+
+        .image {
+            width: 100%;
+            height: $project-image-height;
+            object-fit: cover;
+        }
+
+        .title {
+            margin: 10px 10px 5px 10px;
+            font-size: 14pt;
+            font-weight: bold;
+        }
+
+        .description {
+            margin: 0 10px 10px 10px;
+            overflow: hidden;
+            flex: 1;
+            line-height: 1.25em;
+        }
+    }
+}
+
+.project-detail-container {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: opacity 0.25s ease;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+
+    &.active {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+    }
+}

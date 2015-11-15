@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}My Projects{% endblock %}
+
+{% block head %}
+<title>My Projects</title>
+
+<link rel="stylesheet" type="text/css" href="{% static "css/projects.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "css/nanoscroller.css" %}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="{% static "js/jquery.nanoscroller.min.js" %}"></script>
+<script src="{% static "js/project.js" %}"></script>
+<script src="{% static "js/project_detail.js" %}"></script>
+{% endblock %}
+
+
+{% block content %}
+
+<ul class="projects">
+{% for project in projects %}
+    <li class="project" project-id="{{ project.id }}">
+        <img class="image" src="{{ MEDIA_URL }}{{ project.images.all.0.image }}">
+        <h2 class="title">{{ project.title }}</h2>
+        <div class="description">{{ project.description_html|safe }}</div>
+    </li>
+{% endfor %}
+</ul>
+
+<div class="project-detail-container"></div>
+
+{% endblock %}
