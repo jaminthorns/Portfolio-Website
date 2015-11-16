@@ -43,6 +43,39 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+@font-face {
+  font-family: 'Aquatico';
+  src: url("/static/font/Aquatico-Regular.otf"); }
+.header {
+  width: 500px;
+  margin: 0 auto 20px auto; }
+  .header .sections {
+    display: flex;
+    flex-direction: row;
+    height: 48px; }
+    .header .sections .section {
+      flex: 1;
+      display: flex;
+      text-decoration: none; }
+      .header .sections .section.current {
+        border-style: solid;
+        border-bottom-width: 3px;
+        font-weight: bold; }
+      .header .sections .section span {
+        margin: auto;
+        transition: transform 0.25s ease;
+        font-size: 1.25em;
+        font-family: Aquatico; }
+        .header .sections .section span em {
+          font-size: 1.25em;
+          font-family: Aquatico; }
+      .header .sections .section:hover > span {
+        transform: translateY(-4px); }
+
+.content {
+  max-width: 800px;
+  margin: auto; }
+
 .button, .project-detail .links .link, .projects .project {
   transition: all 0.1s ease;
   background-color: #D0D0D0;
@@ -146,6 +179,39 @@ q:before, q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0; }
+
+@font-face {
+  font-family: 'Aquatico';
+  src: url("/static/font/Aquatico-Regular.otf"); }
+.header {
+  width: 500px;
+  margin: 0 auto 20px auto; }
+  .header .sections {
+    display: flex;
+    flex-direction: row;
+    height: 48px; }
+    .header .sections .section {
+      flex: 1;
+      display: flex;
+      text-decoration: none; }
+      .header .sections .section.current {
+        border-style: solid;
+        border-bottom-width: 3px;
+        font-weight: bold; }
+      .header .sections .section span {
+        margin: auto;
+        transition: transform 0.25s ease;
+        font-size: 1.25em;
+        font-family: Aquatico; }
+        .header .sections .section span em {
+          font-size: 1.25em;
+          font-family: Aquatico; }
+      .header .sections .section:hover > span {
+        transform: translateY(-4px); }
+
+.content {
+  max-width: 800px;
+  margin: auto; }
 
 .button, .project-detail .links .link, .projects .project {
   transition: all 0.1s ease;

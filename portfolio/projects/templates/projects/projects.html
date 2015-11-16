@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 
+
 {% block title %}My Projects{% endblock %}
+
 
 {% block head %}
 <title>My Projects</title>
@@ -13,6 +15,9 @@
 <script src="{% static "js/project.js" %}"></script>
 <script src="{% static "js/project_detail.js" %}"></script>
 {% endblock %}
+
+
+{% block current-projects %}current{% endblock %}
 
 
 {% block content %}

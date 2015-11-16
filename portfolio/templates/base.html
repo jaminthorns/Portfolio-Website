@@ -1,3 +1,5 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <html>
 
@@ -9,11 +11,11 @@
 
 <body>
     <div class="header">
-        {% block header %}
-        <ul>
-            <li><a href="{% url 'projects' %}">Projects</li>
+        <ul class="sections">
+            <a class="section {% block current-projects %}{% endblock %}" href="{% url 'projects' %}"><span><em>P</em>rojects</span></a>
+            <a class="section {% block current-about %}{% endblock %}"><span><em>A</em>bout</span></a>
+            <a class="section {% block current-contact %}{% endblock %}"><span><em>C</em>ontact</span></a>
         </ul>
-        {% endblock %}
     </div>
 
     <div class="content">

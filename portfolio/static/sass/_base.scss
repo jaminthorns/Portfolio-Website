@@ -1,5 +1,55 @@
 @import 'reset';
 
+$header-length: 500px;
+$header-height: 48px;;
+
+@font-face {
+    font-family: 'Aquatico';
+    src: url('/static/font/Aquatico-Regular.otf');
+}
+
+.header {
+    width: $header-length;
+    margin: 0 auto 20px auto;
+
+    .sections {
+        display: flex;
+        flex-direction: row;
+        height: $header-height;
+
+        .section {
+            flex: 1;
+            display: flex;
+            text-decoration: none;
+
+            &.current {
+                border-style: solid;
+                border-bottom-width: 3px;
+                font-weight: bold;
+            }
+
+            span {
+                margin: auto;
+                transition: transform 0.25s ease;
+                font-size: 1.25em;
+                font-family: Aquatico;
+
+                em {
+                    font-size: 1.25em;
+                    font-family: Aquatico;
+                }
+            }
+
+            &:hover > span { transform: translateY(-4px); }
+        }
+    }
+}
+
+.content {
+    max-width: 800px;
+    margin: auto;
+}
+
 .button {
     transition: all 0.1s ease;
     background-color: #D0D0D0;
