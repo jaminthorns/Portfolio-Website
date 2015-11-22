@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+
+{% block head %}
+<title>About</title>
+
+<link rel="stylesheet" type="text/css" href="{% static "css/about.css" %}">
+{% endblock %}
+
+
+{% block current-about %}current{% endblock %}
+
+
+{% block content %}
+
+<div class="about-text">
+    {{ about_text|safe }}
+</div>
+
+{% endblock %}

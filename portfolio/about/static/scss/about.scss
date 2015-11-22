@@ -1,0 +1,7 @@
+@import 'base';
+
+.about-text {
+    @extend .markdown;
+
+    margin-top: 48px;
+}
