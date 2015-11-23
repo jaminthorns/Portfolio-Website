@@ -14,7 +14,7 @@
         <ul class="sections">
             <a class="section {% block current-projects %}{% endblock %}" href="{% url 'projects' %}"><span><em>P</em>rojects</span></a>
             <a href="{% url 'about' %}" class="section {% block current-about %}{% endblock %}"><span><em>A</em>bout</span></a>
-            <a class="section {% block current-contact %}{% endblock %}"><span><em>C</em>ontact</span></a>
+            <a href="{% url 'contact' %}" class="section {% block current-contact %}{% endblock %}"><span><em>C</em>ontact</span></a>
         </ul>
     </div>
 

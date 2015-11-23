@@ -8,8 +8,6 @@ $project-image-height: 200px;
 .projects {
 
     .project {
-        @extend .button;
-
         width: $project-width;
         height: $project-height;
         display: inline-flex;

@@ -49,8 +49,6 @@ $project-detail-width: 600px;
     }
 
     .description {
-        @extend .markdown;
-
         overflow-y: auto;
     }
 
@@ -59,8 +57,6 @@ $project-detail-width: 600px;
         margin-top: 20px;
 
         .link {
-            @extend .button;
-
             padding: 10px;
             margin: 0 10px;
             text-decoration: none;

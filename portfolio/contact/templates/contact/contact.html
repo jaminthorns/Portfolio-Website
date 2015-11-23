@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+
+{% block head %}
+<title>Projects</title>
+
+<link rel="stylesheet" type="text/css" href="{% static "css/contact.css" %}">
+{% endblock %}
+
+
+{% block current-contact %}current{% endblock %}
+
+
+{% block content %}
+
+<form action="{% url 'contact' %}" method="post">
+    {% csrf_token %}
+    {{ contact_form }}
+    <input class="button" type="submit" value="Submit" />
+</form>
+
+{% endblock %}

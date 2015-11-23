@@ -12,7 +12,7 @@ def about(request):
     about_text = markdown(open(about_text_path).read())
 
     context = {
-        'about_text': about_text
+        'about_text': about_text,
     }
 
     return render(request, 'about/about.html', context)

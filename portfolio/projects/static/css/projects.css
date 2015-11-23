@@ -76,61 +76,61 @@ table {
   max-width: 800px;
   margin: auto; }
 
-.button, .project-detail .links .link, .projects .project {
+.button {
   transition: all 0.1s ease;
   background-color: #D0D0D0;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.75); }
-  .button:hover, .project-detail .links .link:hover, .projects .project:hover {
+  .button:hover {
     transform: translateY(-1px);
     background-color: #F0F0F0;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.75); }
-  .button:active, .project-detail .links .link:active, .projects .project:active {
+  .button:active {
     transform: translateY(2px);
     background-color: #C0C0C0;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.75); }
 
-.markdown, .project-detail .description {
+.markdown {
   line-height: 1.5em; }
-  .markdown *:first-child, .project-detail .description *:first-child {
+  .markdown *:first-child {
     margin-top: 0; }
-  .markdown *:last-child, .project-detail .description *:last-child {
+  .markdown *:last-child {
     margin-bottom: 0; }
-  .markdown p, .project-detail .description p {
+  .markdown p {
     margin: 0.5em 0; }
-  .markdown h1, .project-detail .description h1, .markdown h2, .project-detail .description h2, .markdown h3, .project-detail .description h3, .markdown h4, .project-detail .description h4, .markdown h5, .project-detail .description h5, .markdown h6, .project-detail .description h6 {
+  .markdown h1, .markdown h2, .markdown h3, .markdown h4, .markdown h5, .markdown h6 {
     font-weight: bold;
     margin: 1em 0 0.5em 0; }
-  .markdown h1, .project-detail .description h1 {
+  .markdown h1 {
     font-size: 1.75em; }
-  .markdown h2, .project-detail .description h2 {
+  .markdown h2 {
     font-size: 1.5em; }
-  .markdown h3, .project-detail .description h3 {
+  .markdown h3 {
     font-size: 1.25em; }
-  .markdown h4, .project-detail .description h4 {
+  .markdown h4 {
     font-size: 1em; }
-  .markdown h5, .project-detail .description h5 {
+  .markdown h5 {
     font-size: 0.9em; }
-  .markdown h6, .project-detail .description h6 {
+  .markdown h6 {
     font-size: 0.75em; }
-  .markdown ul, .project-detail .description ul, .markdown ol, .project-detail .description ol {
+  .markdown ul, .markdown ol {
     padding-left: 2em; }
-  .markdown ul, .project-detail .description ul {
+  .markdown ul {
     list-style-type: disc; }
-  .markdown ol, .project-detail .description ol {
+  .markdown ol {
     list-style-type: decimal; }
-  .markdown code, .project-detail .description code {
+  .markdown code {
     font-family: monospace; }
-  .markdown pre, .project-detail .description pre {
+  .markdown pre {
     white-space: pre-wrap;
     line-height: 1.1em; }
-  .markdown blockquote, .project-detail .description blockquote {
+  .markdown blockquote {
     padding: 0 1em;
     border-left: 4px solid #D0D0D0; }
-  .markdown em, .project-detail .description em {
+  .markdown em {
     font-style: italic; }
-  .markdown strong, .project-detail .description strong {
+  .markdown strong {
     font-weight: bold; }
-  .markdown hr, .project-detail .description hr {
+  .markdown hr {
     border: 0;
     margin: 1em 0;
     border-top: 2px solid #D0D0D0; }
@@ -213,61 +213,61 @@ table {
   max-width: 800px;
   margin: auto; }
 
-.button, .project-detail .links .link, .projects .project {
+.button {
   transition: all 0.1s ease;
   background-color: #D0D0D0;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.75); }
-  .button:hover, .project-detail .links .link:hover, .projects .project:hover {
+  .button:hover {
     transform: translateY(-1px);
     background-color: #F0F0F0;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.75); }
-  .button:active, .project-detail .links .link:active, .projects .project:active {
+  .button:active {
     transform: translateY(2px);
     background-color: #C0C0C0;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.75); }
 
-.markdown, .project-detail .description {
+.markdown {
   line-height: 1.5em; }
-  .markdown *:first-child, .project-detail .description *:first-child {
+  .markdown *:first-child {
     margin-top: 0; }
-  .markdown *:last-child, .project-detail .description *:last-child {
+  .markdown *:last-child {
     margin-bottom: 0; }
-  .markdown p, .project-detail .description p {
+  .markdown p {
     margin: 0.5em 0; }
-  .markdown h1, .project-detail .description h1, .markdown h2, .project-detail .description h2, .markdown h3, .project-detail .description h3, .markdown h4, .project-detail .description h4, .markdown h5, .project-detail .description h5, .markdown h6, .project-detail .description h6 {
+  .markdown h1, .markdown h2, .markdown h3, .markdown h4, .markdown h5, .markdown h6 {
     font-weight: bold;
     margin: 1em 0 0.5em 0; }
-  .markdown h1, .project-detail .description h1 {
+  .markdown h1 {
     font-size: 1.75em; }
-  .markdown h2, .project-detail .description h2 {
+  .markdown h2 {
     font-size: 1.5em; }
-  .markdown h3, .project-detail .description h3 {
+  .markdown h3 {
     font-size: 1.25em; }
-  .markdown h4, .project-detail .description h4 {
+  .markdown h4 {
     font-size: 1em; }
-  .markdown h5, .project-detail .description h5 {
+  .markdown h5 {
     font-size: 0.9em; }
-  .markdown h6, .project-detail .description h6 {
+  .markdown h6 {
     font-size: 0.75em; }
-  .markdown ul, .project-detail .description ul, .markdown ol, .project-detail .description ol {
+  .markdown ul, .markdown ol {
     padding-left: 2em; }
-  .markdown ul, .project-detail .description ul {
+  .markdown ul {
     list-style-type: disc; }
-  .markdown ol, .project-detail .description ol {
+  .markdown ol {
     list-style-type: decimal; }
-  .markdown code, .project-detail .description code {
+  .markdown code {
     font-family: monospace; }
-  .markdown pre, .project-detail .description pre {
+  .markdown pre {
     white-space: pre-wrap;
     line-height: 1.1em; }
-  .markdown blockquote, .project-detail .description blockquote {
+  .markdown blockquote {
     padding: 0 1em;
     border-left: 4px solid #D0D0D0; }
-  .markdown em, .project-detail .description em {
+  .markdown em {
     font-style: italic; }
-  .markdown strong, .project-detail .description strong {
+  .markdown strong {
     font-weight: bold; }
-  .markdown hr, .project-detail .description hr {
+  .markdown hr {
     border: 0;
     margin: 1em 0;
     border-top: 2px solid #D0D0D0; }

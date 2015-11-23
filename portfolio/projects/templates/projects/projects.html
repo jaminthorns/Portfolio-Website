@@ -1,12 +1,8 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 
-
-{% block title %}My Projects{% endblock %}
-
-
 {% block head %}
-<title>My Projects</title>
+<title>Projects</title>
 
 <link rel="stylesheet" type="text/css" href="{% static "css/projects.css" %}">
 <link rel="stylesheet" type="text/css" href="{% static "css/nanoscroller.css" %}">
@@ -24,7 +20,7 @@
 
 <ul class="projects">
 {% for project in projects %}
-    <li class="project" project-id="{{ project.id }}">
+    <li class="project button" project-id="{{ project.id }}">
         <img class="image" src="{{ MEDIA_URL }}{{ project.images.all.0.image }}">
         <h2 class="title">{{ project.title }}</h2>
         <div class="description">{{ project.description_html|safe }}</div>

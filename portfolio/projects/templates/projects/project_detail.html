@@ -5,14 +5,14 @@
         <li class="image"><img src="{{ MEDIA_URL }}{{ image.image }}"></li>
     {% endfor %}
     </ul>
-    <div class="description nano">
+    <div class="description markdown nano">
         <div class="nano-content">
             {{ project.description_html|safe }}
         </div>
     </div>
     <div class="links">
         {% for link in project.links.all %}
-        <a class="link" href="{{ link.url }}">{{ link.label }}</a>
+        <a class="link button" href="{{ link.url }}">{{ link.label }}</a>
         {% endfor %}
     </div>
     <div class="view-image">

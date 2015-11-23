@@ -431,6 +431,7 @@
 	],
 	"file_history":
 	[
+		"/C/Users/Jamin/.gitconfig",
 		"/C/Users/Jamin/Documents/GitHub/Portfolio-Website/portfolio/projects/static/scss/projects.scss",
 		"/C/Users/Jamin/Documents/GitHub/Portfolio-Website/portfolio/projects/templates/projects/project_detail.html",
 		"/C/Users/Jamin/Documents/GitHub/Portfolio-Website/portfolio/projects/static/css/projects.css",
@@ -441,7 +442,6 @@
 		"/C/Users/Jamin/Documents/GitHub/Portfolio-Website/portfolio/projects/templates/projects/projects.html",
 		"/C/Users/Jamin/Documents/GitHub/Portfolio-Website/portfolio/projects/static/sass/projects.scss",
 		"/C/Users/Jamin/Documents/GitHub/Portfolio-Website/portfolio/projects/static/sass/_project_detail.scss",
-		"/C/Users/Jamin/.gitconfig",
 		"/C/Users/Jamin/Documents/GitHub/Portfolio-Website/portfolio/static/sass/_reset.scss",
 		"/C/Users/Jamin/Documents/GitHub/Portfolio-Website/static/sass/_base.scss",
 		"/C/Users/Jamin/Documents/GitHub/Portfolio-Website/projects/admin.py",
@@ -768,7 +768,7 @@
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": -0.0,
+						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
@@ -985,7 +985,7 @@
 							"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": -0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 11,
