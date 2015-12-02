@@ -51,9 +51,11 @@ $header-height: 48px;;
 }
 
 .button {
-    transition: all 0.1s ease;
+    transition: box-shadow 0.1s ease, transform 0.1s ease, background-color 0.1s ease;
+
     background-color: #D0D0D0;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.75);
+    cursor: pointer;
 
     &:hover {
         transform: translateY(-1px);
@@ -89,4 +91,16 @@ $header-height: 48px;;
     em { font-style: italic; }
     strong { font-weight: bold; }
     hr { border: 0; margin: 1em 0; border-top: 2px solid #D0D0D0; }
+}
+
+
+@mixin optional-at-root($sel) {
+  @at-root #{if(not &, $sel, selector-append(&, $sel))} { @content; }
+}
+
+@mixin placeholder {
+  @include optional-at-root('::-webkit-input-placeholder') { @content; }
+  @include optional-at-root(':-moz-placeholder') { @content; }
+  @include optional-at-root('::-moz-placeholder') { @content; }
+  @include optional-at-root(':-ms-input-placeholder') { @content; }
 }

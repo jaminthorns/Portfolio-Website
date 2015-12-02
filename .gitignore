@@ -107,5 +107,5 @@ $RECYCLE.BIN/
 *.sqlite3
 
 # Sublime Text
-*.sublime-project
 *.sublime-workspace
+*.sublime-project
