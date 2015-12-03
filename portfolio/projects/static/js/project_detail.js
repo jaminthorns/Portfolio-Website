@@ -1,7 +1,6 @@
 function setup_project_detail(project_detail) {
     var project_images = project_detail.find('.images .image');
 
-    // Set click event
     project_images.on('click', select_active_image);
     // Center the first image
     center_images(project_images.eq($('.images').attr('active-image')));
@@ -10,9 +9,9 @@ function setup_project_detail(project_detail) {
     $(".nano").nanoScroller({ flash: true });
 }
 
-function select_active_image() {
-    var images = $(this).parents('.images');
-    var selected_image = $(this);
+function select_active_image(event) {
+    var images = $(event.currentTarget).parents('.images');
+    var selected_image = $(event.currentTarget);
 
     if (images.attr('active-image') != selected_image.index()) {
         images.attr('active-image', selected_image.index());

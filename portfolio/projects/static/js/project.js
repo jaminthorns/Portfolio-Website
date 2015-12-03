@@ -1,11 +1,10 @@
 $(document).ready(function() {
-    // Set event handlers
-    $('.projects .project').on('click', open_project_detail);
-    $('.project-detail-container').on('click transitionend', close_project_detail);
+    $('body').on('click', '.projects .project', open_project_detail);
+    $('body').on('click transitionend', '.project-detail-container', close_project_detail);
 });
 
-function open_project_detail() {
-    var project_id = $(this).attr('project-id');
+function open_project_detail(event) {
+    var project_id = $(event.currentTarget).attr('project-id');
     var container = $('.project-detail-container');
 
     $.ajax('/projects/project_detail/' + project_id)

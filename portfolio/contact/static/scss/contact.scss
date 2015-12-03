@@ -1,8 +1,5 @@
 @import 'base';
 
-$input-height: 28px;
-$input-margin: 4px;
-
 .contact-form {
 
     max-width: 600px;
@@ -20,7 +17,7 @@ $input-margin: 4px;
 
     .contact-input {
         padding: 8px;
-        margin: $input-margin 0;
+        margin: 4px 0;
         color: #606060;
         background-color: #E0E0E0;
         border-radius: 4px;
