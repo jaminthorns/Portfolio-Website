@@ -13,8 +13,8 @@ $project-image-height: 200px;
         display: inline-flex;
         flex-direction: column;
         overflow: hidden;
-        margin: 10px;
-        border-radius: 8px;
+        margin: 0 10px 20px 10px;
+        border-radius: 4px;
 
         .image {
             width: 100%;

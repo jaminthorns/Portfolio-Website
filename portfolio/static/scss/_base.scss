@@ -1,6 +1,6 @@
 @import 'reset';
 
-$header-length: 500px;
+$header-width: 480px;
 $header-height: 48px;;
 
 @font-face {
@@ -8,9 +8,21 @@ $header-height: 48px;;
     src: url('/static/font/Aquatico-Regular.otf');
 }
 
+body {
+    overflow-y: scroll;
+}
+
+#background {
+    position: fixed;
+    z-index: -10;
+}
+
 .header {
-    width: $header-length;
+    width: $header-width;
     margin: 0 auto 20px auto;
+    padding: 0 20px;
+    border-radius: 0 0 4px 4px;
+    background-color: rgba(#FFFFFF, 0.6);
 
     .sections {
         display: flex;
@@ -21,16 +33,21 @@ $header-height: 48px;;
             flex: 1;
             display: flex;
             text-decoration: none;
+            transition: transform 0.25s ease;
 
             &.current {
-                border-style: solid;
-                border-bottom-width: 3px;
                 font-weight: bold;
+
+                body.js & { transform: translateY(-3px) };
+
+                body:not(.js) & {
+                    border-style: solid;
+                    border-bottom-width: 3px;
+                }
             }
 
             span {
                 margin: auto;
-                transition: transform 0.25s ease;
                 font-size: 1.25em;
                 font-family: Aquatico;
 
@@ -39,35 +56,38 @@ $header-height: 48px;;
                     font-family: Aquatico;
                 }
             }
-
-            &:hover > span { transform: translateY(-4px); }
         }
+    }
+
+    body.js & #current {
+        position: absolute;
+        top: $header-height - 3px;
+        width: $header-width / 3;
+        height: 3px;
+        background-color: #000000;
+
+        &:not(.notransition) { transition: transform 0.25s ease };
     }
 }
 
 .content {
     max-width: 800px;
     margin: auto;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+
+    &.hidden {
+        transform: translateY(25px);
+        opacity: 0;
+    }
 }
 
 .button {
-    transition: box-shadow 0.1s ease, transform 0.1s ease, background-color 0.1s ease;
-
-    background-color: #D0D0D0;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.75);
+    transition: background-color 0.1s ease, opacity 0.1s ease;
+    background-color: rgba(#FFFFFF, 0.6);
     cursor: pointer;
 
-    &:hover {
-        transform: translateY(-1px);
-        background-color: #F0F0F0;
-        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.75);
-    }
-
-    &:active {
-        transform: translateY(2px);
-        background-color: #C0C0C0;
-        box-shadow: 0 0 4px rgba(0, 0, 0, 0.75);
-    }
+    &:hover { background-color: rgba(#FFFFFF, 0.9); }
+    &:active { background-color: rgba(#FFFFFF, 0.5); opacity: 0.75; }
 }
 
 .markdown {
@@ -91,6 +111,10 @@ $header-height: 48px;;
     em { font-style: italic; }
     strong { font-weight: bold; }
     hr { border: 0; margin: 1em 0; border-top: 2px solid #D0D0D0; }
+}
+
+.notransition {
+    transition: none;
 }
 
 

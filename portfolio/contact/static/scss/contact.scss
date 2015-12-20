@@ -18,8 +18,7 @@
     .contact-input {
         padding: 8px;
         margin: 4px 0;
-        color: #606060;
-        background-color: #E0E0E0;
+        background-color: rgba(#FFFFFF, 0.75);
         border-radius: 4px;
         transition: background-color 0.25s ease;
 
@@ -32,7 +31,7 @@
         }
 
         &:focus {
-            background-color: #808080;
+            background-color: rgba(#808080, 0.75);
             color: #FFFFFF;
 
             @include placeholder {

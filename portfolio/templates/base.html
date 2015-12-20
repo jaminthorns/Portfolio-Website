@@ -4,20 +4,24 @@
 <html>
 
 <head>
-    <title>Portfolio</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="{% static "js/section_switch.js" %}"></script>
+    <script src="{% static "js/triangles.js" %}"></script>
+    <script src="{% static "js/page.js" %}"></script>
     {% block head %}
     {% endblock %}
 </head>
 
 <body>
+    <canvas id="background"></canvas>
+
     <div class="header">
         <ul class="sections">
-            <a class="section {% block current-projects %}{% endblock %}" href="{% url 'projects' %}"><span><em>P</em>rojects</span></a>
-            <a href="{% url 'about' %}" class="section {% block current-about %}{% endblock %}"><span><em>A</em>bout</span></a>
-            <a href="{% url 'contact' %}" class="section {% block current-contact %}{% endblock %}"><span><em>C</em>ontact</span></a>
+            <a title="Projects" class="section {% block current-projects %}{% endblock %}" href="{% url 'projects' %}"><span><em>P</em>rojects</span></a>
+            <a title="About" class="section {% block current-about %}{% endblock %}" href="{% url 'about' %}"><span><em>A</em>bout</span></a>
+            <a title="Contact" class="section {% block current-contact %}{% endblock %}" href="{% url 'contact' %}"><span><em>C</em>ontact</span></a>
         </ul>
+
+        <div id="current"></div>
     </div>
 
     <div class="content">
