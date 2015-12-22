@@ -71,8 +71,6 @@ body {
 }
 
 .content {
-    max-width: 800px;
-    margin: auto;
     transition: transform 0.25s ease, opacity 0.25s ease;
 
     &.hidden {

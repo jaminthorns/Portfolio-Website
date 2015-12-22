@@ -3,9 +3,15 @@
 
 $project-width: 200px;
 $project-height: 365px;
+$project-margin: 20px;
 $project-image-height: 200px;
 
 .projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+    max-width: ($project-width + $project-margin) * 4;
 
     .project {
         width: $project-width;
@@ -13,7 +19,7 @@ $project-image-height: 200px;
         display: inline-flex;
         flex-direction: column;
         overflow: hidden;
-        margin: 0 10px 20px 10px;
+        margin: 0 ($project-margin / 2) $project-margin ($project-margin / 2);
         border-radius: 4px;
 
         .image {

@@ -92,8 +92,6 @@ body {
       transition: transform 0.25s ease; }
 
 .content {
-  max-width: 800px;
-  margin: auto;
   transition: transform 0.25s ease, opacity 0.25s ease; }
   .content.hidden {
     transform: translateY(25px);

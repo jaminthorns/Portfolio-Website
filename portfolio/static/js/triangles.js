@@ -30,6 +30,7 @@ Triangles.prototype = {
 
         this.make_points();
         this.make_triangles();
+        this.color_triangles();
 
         // Initially randomize triangles
         this.randomize();
@@ -73,11 +74,8 @@ Triangles.prototype = {
     },
 
     make_triangles: function() {
-        var width = window.innerWidth;
-        var height = window.innerHeight;
-        var max_x = Math.floor(width / this.size) + this.bleed;
-        var max_y = Math.floor(height / this.size) + this.bleed;
-        var gradient = this.make_gradient();
+        var max_x = Math.floor(window.innerWidth / this.size) + this.bleed;
+        var max_y = Math.floor(window.innerHeight / this.size) + this.bleed;
         var t1, t2;
 
         for (y = -this.bleed; y < max_y; y++) {
@@ -89,15 +87,21 @@ Triangles.prototype = {
                                   this.points[y % 2 ? [x, y] : [x, y + 1]],
                                   this.points[[x + 1, y + 1]]);
 
-                t1.color = this.get_color(gradient, t1, this.size, this.bleed);
-                t2.color = this.get_color(gradient, t2, this.size, this.bleed);
-
                 this.triangles.push(t1, t2);
             }
         }
     },
 
-    make_gradient: function() {
+    color_triangles: function() {
+        var gradient = this.make_gradient([
+            {stop: 0, color: '#B0E8FF'},
+            {stop: 1, color: '#005A34'}]);
+
+        for (var i in this.triangles)
+            this.triangles[i].color = this.get_color(gradient, this.triangles[i]);
+    },
+
+    make_gradient: function(stops) {
         // Create canvas for gradient
         var canvas_g = document.createElement('canvas');
         var context_g = canvas_g.getContext('2d');
@@ -107,8 +111,9 @@ Triangles.prototype = {
         canvas_g.height = window.innerHeight + (this.size * this.bleed * 2);
 
         var gradient = context_g.createRadialGradient(0, 0, 0, 0, 0, canvas_g.width * 1.5);
-        gradient.addColorStop(0, '#B0E8FF');
-        gradient.addColorStop(1, '#005A34');
+
+        for (var i in stops)
+            gradient.addColorStop(stops[i].stop, stops[i].color);
 
         context_g.fillStyle = gradient;
         context_g.fillRect(0, 0, canvas_g.width, canvas_g.height);
