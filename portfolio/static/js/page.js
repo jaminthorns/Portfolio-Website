@@ -6,12 +6,16 @@ $(document).ready(function() {
     $('body').on('click', '.section', click_section);
     $('body').on('transitionend', '.section', change_section);
     $(window).on('popstate', pop_section);
-
-    var triangles = new Triangles($('#background')[0], $('.sections')[0], 75, 2, 0.4, 10, 0.15, 25);
+    
+    var colors = [{stop: 0, color: '#B0E8FF'}, {stop: 1, color: '#005A34'}];
+    triangles = new Triangles($('#background')[0], colors, 75, 2, 0.4, 10, 0.15, 25);
 });
 
 function click_section(event) {
     var target = $(event.currentTarget);
+    
+    var colors = [{stop: 0, color: '#FF00FF'}, {stop: 1, color: '#000000'}];
+    triangles.morph(event.pageX, event.pageY, colors);
 
     if (!target.hasClass('current'))
         start_change_section(target, true);

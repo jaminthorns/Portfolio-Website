@@ -1,17 +1,16 @@
-function Triangles(canvas, click, size, bleed, spread, color_range, morph_speed, circle_speed) {
+function Triangles(canvas, colors, size, over, spread, color_range, morph_speed, circle_speed) {
     var that = this;
 
     this.canvas = canvas;
+    this.colors = colors;
     this.size = size;
-    this.bleed = bleed;
+    this.over = over;
     this.spread = spread;
     this.color_range = color_range;
     this.morph_speed = morph_speed;
     this.circle_speed = circle_speed;
     this.context = this.canvas.getContext('2d');
 
-    // Morph triangles on click
-    click.addEventListener('click', function(event) { that.morph(event) });
     // Resize canvas on window resize
     window.addEventListener('resize', function(event) { that.reset() });
 
@@ -30,11 +29,13 @@ Triangles.prototype = {
 
         this.make_points();
         this.make_triangles();
-        this.color_triangles();
 
         // Initially randomize triangles
         this.randomize();
         for (var i in this.points) this.points[i].step(1, 1);
+        // Initially color triangles
+        this.color_triangles(this.colors);
+        for (var i in this.triangles) this.triangles[i].color = this.triangles[i].dest_color;
 
         // Resize canvas
         this.canvas.width = window.innerWidth;
@@ -50,8 +51,12 @@ Triangles.prototype = {
                     this.points[i].step(this.morph_speed, 0.1);
             }
 
-            for (var i in this.triangles)
+            for (var i in this.triangles) {
+                if (this.circle.point_in(this.triangles[i].center()))
+                    this.triangles[i].step();
+                
                 this.triangles[i].draw(this.context);
+            }
 
             this.circle.step(this.circle_speed);
         }
@@ -63,23 +68,23 @@ Triangles.prototype = {
     make_points: function() {
         var width = window.innerWidth;
         var height = window.innerHeight;
-        var max_x = Math.floor(width / this.size) + this.bleed + 1;
-        var max_y = Math.floor(height / this.size) + this.bleed + 1;
+        var max_x = Math.floor(width / this.size) + this.over + 1;
+        var max_y = Math.floor(height / this.size) + this.over + 1;
 
-        for (y = -this.bleed; y < max_y; y++) {
-            for (x = -this.bleed; x < max_x; x++) {
+        for (y = -this.over; y < max_y; y++) {
+            for (x = -this.over; x < max_x; x++) {
                 this.points[[x, y]] = new Point(x * this.size + (y % 2 ? this.size / 2 : 0), y * this.size);
             }
         }
     },
 
     make_triangles: function() {
-        var max_x = Math.floor(window.innerWidth / this.size) + this.bleed;
-        var max_y = Math.floor(window.innerHeight / this.size) + this.bleed;
+        var max_x = Math.floor(window.innerWidth / this.size) + this.over;
+        var max_y = Math.floor(window.innerHeight / this.size) + this.over;
         var t1, t2;
 
-        for (y = -this.bleed; y < max_y; y++) {
-            for (x = -this.bleed; x < max_x; x++) {
+        for (y = -this.over; y < max_y; y++) {
+            for (x = -this.over; x < max_x; x++) {
                 t1 = new Triangle(this.points[[x, y]],
                                   this.points[y % 2 ? [x + 1, y + 1] : [x + 1, y]],
                                   this.points[[x, y + 1]]);
@@ -92,28 +97,26 @@ Triangles.prototype = {
         }
     },
 
-    color_triangles: function() {
-        var gradient = this.make_gradient([
-            {stop: 0, color: '#B0E8FF'},
-            {stop: 1, color: '#005A34'}]);
+    color_triangles: function(colors) {
+        var gradient = this.make_gradient(colors);
 
         for (var i in this.triangles)
-            this.triangles[i].color = this.get_color(gradient, this.triangles[i]);
+            this.triangles[i].set_dest(this.get_color(gradient, this.triangles[i].center()));
     },
 
-    make_gradient: function(stops) {
+    make_gradient: function(colors) {
         // Create canvas for gradient
         var canvas_g = document.createElement('canvas');
         var context_g = canvas_g.getContext('2d');
 
         // Set size to account for overfill
-        canvas_g.width = window.innerWidth + (this.size * this.bleed * 2);
-        canvas_g.height = window.innerHeight + (this.size * this.bleed * 2);
+        canvas_g.width = window.innerWidth + (this.size * this.over * 2);
+        canvas_g.height = window.innerHeight + (this.size * this.over * 2);
 
         var gradient = context_g.createRadialGradient(0, 0, 0, 0, 0, canvas_g.width * 1.5);
 
-        for (var i in stops)
-            gradient.addColorStop(stops[i].stop, stops[i].color);
+        for (var i in colors)
+            gradient.addColorStop(colors[i].stop, colors[i].color);
 
         context_g.fillStyle = gradient;
         context_g.fillRect(0, 0, canvas_g.width, canvas_g.height);
@@ -122,23 +125,23 @@ Triangles.prototype = {
                 data: context_g.getImageData(0, 0, canvas_g.width, canvas_g.height).data};
     },
 
-    get_color: function(gradient, triangle) {
-        var center = triangle.center();
-        var offset = this.size * this.bleed;
-        var i = (Math.floor(center.x) + offset + ((Math.floor(center.y) + offset) * gradient.canvas.width)) * 4;
+    get_color: function(gradient, point) {
+        var offset = this.size * this.over;
+        var i = (Math.floor(point.x) + offset + ((Math.floor(point.y) + offset) * gradient.canvas.width)) * 4;
 
         // Randomize colors
         var rand = Math.floor((Math.random() * this.color_range * 2) - this.color_range);
 
-        var d = gradient.data;
-        return 'rgb(' + (d[i] + rand) + ',' + (d[i + 1] + rand) + ',' + (d[i + 2] + rand) + ')';
+        var g = gradient.data;
+        return 'rgb(' + (g[i] + rand) + ',' + (g[i + 1] + rand) + ',' + (g[i + 2] + rand) + ')';
     },
 
-    morph: function(event) {
-        this.circle = new Circle(event.pageX, event.pageY, 0);
-        this.circle.set_dest(Math.max(window.innerWidth, window.innerHeight) * 1.5);
-
+    morph: function(x, y, colors) {
         this.randomize();
+        if (colors) this.color_triangles(colors);
+
+        this.circle = new Circle(x, y, 0);
+        this.circle.set_dest(Math.max(window.innerWidth, window.innerHeight) * 1.5);
     },
 
     randomize: function() {
@@ -193,10 +196,14 @@ function Triangle(p1, p2, p3, color) {
     this.p1 = p1;
     this.p2 = p2;
     this.p3 = p3;
-    this.color = color;
+    this.color = this.dest_color = color;
 }
 
 Triangle.prototype = {
+    set_dest: function(dest_color) {
+        this.dest_color = dest_color;
+    },
+    
     draw: function(context) {
         context.fillStyle = this.color;
         context.strokeStyle = this.color;
@@ -207,6 +214,10 @@ Triangle.prototype = {
         context.lineTo(this.p1.x, this.p1.y);
         context.stroke();
         context.fill();
+    },
+
+    step: function() {
+        this.color = this.dest_color;
     },
 
     center: function() {
