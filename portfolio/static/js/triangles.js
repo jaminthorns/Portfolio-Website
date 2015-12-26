@@ -99,7 +99,11 @@ Triangles.prototype = {
 
     morph: function(x, y, colors) {
         this.randomize();
-        if (colors) this.color_triangles(colors);
+        
+        if (colors) {
+            this.colors = colors;
+            this.color_triangles(colors);
+        }
 
         this.circle = new Circle(x, y, 0);
         this.circle.set_dest(Math.max(window.innerWidth, window.innerHeight) * 1.5);

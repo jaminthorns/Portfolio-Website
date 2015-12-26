@@ -26,7 +26,13 @@ function click_section(event) {
 }
 
 function pop_section(event) {
-    start_change_section($('[href="' + window.location.pathname + '"]'), false);
+    var current = $('.section[href="' + window.location.pathname + '"]');
+    var x = current.offset().left + current.width() / 2;
+    var y = current.offset().top + current.height() / 2;
+    var colors = eval(current.attr('colors'));
+
+    triangles.morph(x, y, colors);
+    start_change_section(current, false);
 }
 
 function start_change_section(section, push) {
