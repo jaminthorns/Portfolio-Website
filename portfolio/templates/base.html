@@ -16,9 +16,9 @@
 
     <div class="header">
         <ul class="sections">
-            <a title="Projects" class="section {% block current-projects %}{% endblock %}" href="{% url 'projects' %}"><span><em>P</em>rojects</span></a>
-            <a title="About" class="section {% block current-about %}{% endblock %}" href="{% url 'about' %}"><span><em>A</em>bout</span></a>
-            <a title="Contact" class="section {% block current-contact %}{% endblock %}" href="{% url 'contact' %}"><span><em>C</em>ontact</span></a>
+            <a title="Projects" class="section {% block current-projects %}{% endblock %}" href="{% url 'projects' %}" colors="[{stop: 0, color: '#B0E8FF'}, {stop: 1, color: '#005A34'}]"><span><em>P</em>rojects</span></a>
+            <a title="About" class="section {% block current-about %}{% endblock %}" href="{% url 'about' %}" colors="[{stop: 0, color: '#BDFF9C'}, {stop: 1, color: '#41C200'}]"><span><em>A</em>bout</span></a>
+            <a title="Contact" class="section {% block current-contact %}{% endblock %}" href="{% url 'contact' %}" colors="[{stop: 0, color: '#FFB0FC'}, {stop: 1, color: '#C900C3'}]"><span><em>C</em>ontact</span></a>
         </ul>
 
         <div id="current"></div>

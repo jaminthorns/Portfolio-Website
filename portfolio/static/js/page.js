@@ -1,20 +1,22 @@
 $(document).ready(function() {
+    var current = $('.sections .current');
+
     $('body').addClass('js');
-    document.title = $('.sections .current').attr('title');
+    document.title = current.attr('title');
     move_current(false);
 
     $('body').on('click', '.section', click_section);
     $('body').on('transitionend', '.section', change_section);
     $(window).on('popstate', pop_section);
     
-    var colors = [{stop: 0, color: '#B0E8FF'}, {stop: 1, color: '#005A34'}];
+    var colors = eval(current.attr('colors'));
     triangles = new Triangles($('#background')[0], colors, 75, 2, 0.4, 10, 0.15, 25);
 });
 
 function click_section(event) {
     var target = $(event.currentTarget);
     
-    var colors = [{stop: 0, color: '#FF00FF'}, {stop: 1, color: '#000000'}];
+    var colors = eval(target.attr('colors'));
     triangles.morph(event.pageX, event.pageY, colors);
 
     if (!target.hasClass('current'))
