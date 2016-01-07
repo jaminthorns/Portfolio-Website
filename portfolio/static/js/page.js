@@ -1,21 +1,27 @@
 $(document).ready(function() {
+    $('body').addClass('js');
+
+    var colors;
     var current = $('.sections .current');
 
-    $('body').addClass('js');
-    document.title = current.attr('title');
-    move_current(false);
+    if (current.length > 0) {
+        document.title = current.attr('title');
+        move_current(false);
+        colors = eval(current.attr('colors'));
+    }
+    else
+        colors = eval($('.sections').attr('colors'));
 
     $('body').on('click', '.section', click_section);
     $('body').on('transitionend', '.section', change_section);
     $(window).on('popstate', pop_section);
-    
-    var colors = eval(current.attr('colors'));
+
     triangles = new Triangles($('#background')[0], colors, 75, 2, 0.4, 10, 0.15, 25);
 });
 
 function click_section(event) {
     var target = $(event.currentTarget);
-    
+
     var colors = eval(target.attr('colors'));
     triangles.morph(event.pageX, event.pageY, colors);
 
@@ -36,13 +42,15 @@ function pop_section(event) {
 }
 
 function start_change_section(section, push) {
+    var existing_current = $('.sections .current').length > 0;
+
     $('.content').addClass('hidden');
     // Change section title
     document.title = section.attr('title');
     // Change current section
     $('.section').removeClass('current');
     section.addClass('current');
-    move_current(true);
+    move_current(existing_current);
     // Push state
     if (push) window.history.pushState({}, document.title, section.attr('href'));
 }
@@ -87,4 +95,6 @@ function move_current(animate) {
         current[0].offsetHeight;
         current.removeClass('notransition');
     }
+
+    $('#current').css('opacity', '1');
 }

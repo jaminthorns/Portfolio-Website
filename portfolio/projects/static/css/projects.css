@@ -58,7 +58,12 @@ body {
   margin: 0 auto 20px auto;
   padding: 0 20px;
   border-radius: 0 0 4px 4px;
-  background-color: rgba(255, 255, 255, 0.6); }
+  background-color: rgba(255, 255, 255, 0.6);
+  display: flex;
+  flex-direction: column; }
+  .header #logo {
+    height: 256px;
+    margin: 20px 0; }
   .header .sections {
     display: flex;
     flex-direction: row;
@@ -84,12 +89,12 @@ body {
           font-family: Aquatico; }
   body.js .header #current {
     position: absolute;
-    top: 45px;
+    top: 341px;
     width: 160px;
     height: 3px;
     background-color: #000000; }
     body.js .header #current:not(.notransition) {
-      transition: transform 0.25s ease; }
+      transition: transform 0.25s ease, opacity 0.5s ease; }
 
 .content {
   transition: transform 0.25s ease, opacity 0.25s ease; }
@@ -216,7 +221,12 @@ body {
   margin: 0 auto 20px auto;
   padding: 0 20px;
   border-radius: 0 0 4px 4px;
-  background-color: rgba(255, 255, 255, 0.6); }
+  background-color: rgba(255, 255, 255, 0.6);
+  display: flex;
+  flex-direction: column; }
+  .header #logo {
+    height: 256px;
+    margin: 20px 0; }
   .header .sections {
     display: flex;
     flex-direction: row;
@@ -242,12 +252,12 @@ body {
           font-family: Aquatico; }
   body.js .header #current {
     position: absolute;
-    top: 45px;
+    top: 341px;
     width: 160px;
     height: 3px;
     background-color: #000000; }
     body.js .header #current:not(.notransition) {
-      transition: transform 0.25s ease; }
+      transition: transform 0.25s ease, opacity 0.5s ease; }
 
 .content {
   transition: transform 0.25s ease, opacity 0.25s ease; }
