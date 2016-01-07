@@ -14,29 +14,27 @@ body {
     z-index: -10;
 }
 
+#logo {
+    display: block;
+    width: 256px;
+    max-width: 100%;
+    margin: auto;
+    padding: 10px 0;
+    transition: height 1s ease;
+}
+
 .header {
     $header-width: 480px;
-    $header-height: 48px;
-    $logo-height: 256px;
-    $logo-margin: 20px;
 
     width: $header-width;
     margin: 0 auto 20px auto;
     padding: 0 20px;
     border-radius: 0 0 4px 4px;
     background-color: rgba(#FFFFFF, 0.6);
-    display: flex;
-    flex-direction: column;
-
-    #logo {
-        height: $logo-height;
-        margin: $logo-margin 0;
-    }
 
     .sections {
         display: flex;
-        flex-direction: row;
-        height: $header-height;
+        height: 48px;
 
         .section {
             flex: 1;
@@ -69,8 +67,7 @@ body {
     }
 
     body.js & #current {
-        position: absolute;
-        top: $header-height + $logo-height + $logo-margin * 2 - 3px;
+        position: relative;
         width: $header-width / 3;
         height: 3px;
         background-color: #000000;
