@@ -13,8 +13,8 @@ $(document).ready(function() {
         colors = eval($('.sections').attr('colors'));
 
     $('body').on('click', '.section', click_section);
-    $('body').on('transitionend', '.section', change_section);
-    $(window).on('popstate', pop_section);
+    $('body').on('transitionend', '#current', change_section);
+    $(window).on('popstate', pop);
 
     triangles = new Triangles($('#background')[0], colors, 75, 2, 0.4, 10, 0.15, 25);
 });
@@ -31,54 +31,54 @@ function click_section(event) {
     return false;
 }
 
-function pop_section(event) {
-    var current = $('.section[href="' + window.location.pathname + '"]');
-    var x = current.offset().left + current.width() / 2;
-    var y = current.offset().top + current.height() / 2;
-    var colors = eval(current.attr('colors'));
+function pop(event) {
+    var x, y, colors;
+
+    if (window.location.pathname == '/') {
+        x = window.innerWidth / 2;
+        y = window.innerHeight / 2;
+        colors = eval($('.sections').attr('colors'));
+
+        go_home(window.location.pathname);
+    }
+    else {
+        var current = $('.section[href="' + window.location.pathname + '"]');
+        x = current.offset().left + current.width() / 2;
+        y = current.offset().top + current.height() / 2;
+        colors = eval(current.attr('colors'));
+
+        start_change_section(current, false);
+    }
 
     triangles.morph(x, y, colors);
-    start_change_section(current, false);
+}
+
+function go_home(home) {
+    $('.content').addClass('hidden');
+    // Unset current
+    $('.section').removeClass('current');
+    // Hide slider
+    $('#current').css('opacity', '0');
 }
 
 function start_change_section(section, push) {
     var existing_current = $('.sections .current').length > 0;
 
+    // Hide content
     $('.content').addClass('hidden');
     // Change section title
     document.title = section.attr('title');
     // Change current section
     $('.section').removeClass('current');
     section.addClass('current');
+    // Move slider
     move_current(existing_current);
     // Push state
     if (push) window.history.pushState({}, document.title, section.attr('href'));
 }
 
 function change_section(event) {
-    if (event.currentTarget == $('.sections .current')[0]) {
-        $.ajax($(event.currentTarget).attr('href'))
-        .done(function(page_html) {
-            var page = $(page_html);
-            var urls = {'SCRIPT': 'src', 'LINK': 'href'};
-
-            // Get scripts and links that are not already in head
-            var head = page.filter('script, link').filter(function (index, element) {
-                var tag = element.tagName;
-                var url = $(element).attr(urls[tag]);
-
-                // Check if script or link already exists in head
-                return $('head [' + urls[tag] +'="' + url + '"]').length == 0;
-            });
-
-            // Load new scripts and links
-            $('head').append(head);
-            // Load content
-            $('.content').empty();
-            $('.content').append(page.filter('.content').children());
-            $('.content').removeClass('hidden');
-        });
-    }
+    $.ajax($('.sections .current').attr('href')).done(load_new_page);
 }
 
 function move_current(animate) {
@@ -97,4 +97,26 @@ function move_current(animate) {
     }
 
     $('#current').css('opacity', '1');
+}
+
+function load_new_page(page_html) {
+    var page = $(page_html);
+    var urls = {'SCRIPT': 'src', 'LINK': 'href'};
+
+    // Get scripts and links that are not already in head
+    var head = page.filter('script, link').filter(function (index, element) {
+        var tag = element.tagName;
+        var url = $(element).attr(urls[tag]);
+
+        // Check if script or link already exists in head
+        return $('head [' + urls[tag] +'="' + url + '"]').length == 0;
+    });
+
+    // Load new scripts and links
+    $('head').append(head);
+    // Load content
+    $('.content').empty();
+    $('.content').append(page.filter('.content').children());
+    // Show content
+    $('.content').removeClass('hidden');
 }

@@ -16,7 +16,7 @@ body {
 
 #logo {
     display: block;
-    width: 256px;
+    height: 256px;
     max-width: 100%;
     margin: auto;
     padding: 10px 0;
@@ -72,7 +72,7 @@ body {
         height: 3px;
         background-color: #000000;
 
-        &:not(.notransition) { transition: transform 0.25s ease, opacity 0.5s ease; };
+        &:not(.notransition) { transition: transform 0.25s ease, opacity 0.25s ease; };
     }
 }
 
