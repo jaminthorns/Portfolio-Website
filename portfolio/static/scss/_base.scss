@@ -11,16 +11,28 @@ body {
 
 #background {
     position: fixed;
+    top: 0;
+    left: 0;
     z-index: -10;
 }
 
-#logo {
+.logo {
     display: block;
-    height: 256px;
+    height: 64px;
     max-width: 100%;
-    margin: auto;
+    margin: 0 auto 0 auto;
     padding: 10px 0;
-    transition: height 1s ease;
+    transition: height 0.25s ease, margin-top 0.25s ease;
+
+    path {
+        transition: stroke-dashoffset 2s linear;
+
+        &.draw{ stroke-dashoffset: 0; }
+    }
+
+    circle {
+        transition: opacity 0.25s ease;
+    }
 }
 
 .header {
@@ -79,10 +91,7 @@ body {
 .content {
     transition: transform 0.25s ease, opacity 0.25s ease;
 
-    &.hidden {
-        transform: translateY(25px);
-        opacity: 0;
-    }
+    &.hidden { transform: translateY(25px); }
 }
 
 .button {
@@ -120,6 +129,11 @@ body {
 .notransition {
     transition: none;
 }
+
+.hidden {
+    opacity: 0;
+}
+
 
 
 @mixin optional-at-root($sel) {

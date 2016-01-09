@@ -1,16 +1,13 @@
 $(document).ready(function() {
     $('body').addClass('js');
 
-    var colors;
-    var current = $('.sections .current');
+    draw_logo()
 
-    if (current.length > 0) {
-        document.title = current.attr('title');
-        move_current(false);
-        colors = eval(current.attr('colors'));
-    }
-    else
-        colors = eval($('.sections').attr('colors'));
+    var current = $('.section.current');
+    var colors = eval(current.attr('colors'));
+
+    document.title = current.attr('title');
+    move_current(false);
 
     $('body').on('click', '.section', click_section);
     $('body').on('transitionend', '#current', change_section);
@@ -19,10 +16,23 @@ $(document).ready(function() {
     triangles = new Triangles($('#background')[0], colors, 75, 2, 0.4, 10, 0.15, 25);
 });
 
+function draw_logo() {
+    var logo_path = $('.logo path');
+    var logo_length = logo_path[0].getTotalLength();
+
+    logo_path.css({'stroke-dasharray': logo_length + 1,
+                   'stroke-dashoffset': -logo_length});
+
+    logo_path[0].offsetHeight;
+    logo_path.css('stroke-dashoffset', 0);
+
+    logo_path.on('transitionend', function() { $('.logo circle').attr('class', ''); });
+}
+
 function click_section(event) {
     var target = $(event.currentTarget);
-
     var colors = eval(target.attr('colors'));
+
     triangles.morph(event.pageX, event.pageY, colors);
 
     if (!target.hasClass('current'))
@@ -34,35 +44,17 @@ function click_section(event) {
 function pop(event) {
     var x, y, colors;
 
-    if (window.location.pathname == '/') {
-        x = window.innerWidth / 2;
-        y = window.innerHeight / 2;
-        colors = eval($('.sections').attr('colors'));
+    var current = $('.section[href="' + window.location.pathname + '"]');
+    x = current.offset().left + current.width() / 2;
+    y = current.offset().top + current.height() / 2;
+    colors = eval(current.attr('colors'));
 
-        go_home(window.location.pathname);
-    }
-    else {
-        var current = $('.section[href="' + window.location.pathname + '"]');
-        x = current.offset().left + current.width() / 2;
-        y = current.offset().top + current.height() / 2;
-        colors = eval(current.attr('colors'));
-
-        start_change_section(current, false);
-    }
-
+    start_change_section(current, false);
     triangles.morph(x, y, colors);
 }
 
-function go_home(home) {
-    $('.content').addClass('hidden');
-    // Unset current
-    $('.section').removeClass('current');
-    // Hide slider
-    $('#current').css('opacity', '0');
-}
-
 function start_change_section(section, push) {
-    var existing_current = $('.sections .current').length > 0;
+    var home = $('.section.current .logo').length > 0;
 
     // Hide content
     $('.content').addClass('hidden');
@@ -71,18 +63,28 @@ function start_change_section(section, push) {
     // Change current section
     $('.section').removeClass('current');
     section.addClass('current');
-    // Move slider
-    move_current(existing_current);
+
+    // Coming from Home
+    if (home) {
+        move_current(false);
+        $('#current').removeClass('hidden'); }
+    // Going to Home
+    else if ($('.section.current .logo').length > 0)
+        $('#current').addClass('hidden');
+    // Go to somewhere else
+    else
+        move_current(true);
+
     // Push state
     if (push) window.history.pushState({}, document.title, section.attr('href'));
 }
 
 function change_section(event) {
-    $.ajax($('.sections .current').attr('href')).done(load_new_page);
+    $.ajax($('.section.current').attr('href')).done(load_new_page);
 }
 
 function move_current(animate) {
-    var section = $('.sections .current');
+    var section = $('.section.current');
     var current = $('#current');
     var translate = section.offset().left - section.parent().offset().left;
 
@@ -95,8 +97,6 @@ function move_current(animate) {
         current[0].offsetHeight;
         current.removeClass('notransition');
     }
-
-    $('#current').css('opacity', '1');
 }
 
 function load_new_page(page_html) {

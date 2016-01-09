@@ -51,15 +51,23 @@ body {
 
 #background {
   position: fixed;
+  top: 0;
+  left: 0;
   z-index: -10; }
 
-#logo {
+.logo {
   display: block;
-  height: 256px;
+  height: 64px;
   max-width: 100%;
-  margin: auto;
+  margin: 0 auto 0 auto;
   padding: 10px 0;
-  transition: height 1s ease; }
+  transition: height 0.25s ease, margin-top 0.25s ease; }
+  .logo path {
+    transition: stroke-dashoffset 2s linear; }
+    .logo path.draw {
+      stroke-dashoffset: 0; }
+  .logo circle {
+    transition: opacity 0.25s ease; }
 
 .header {
   width: 480px;
@@ -100,8 +108,7 @@ body {
 .content {
   transition: transform 0.25s ease, opacity 0.25s ease; }
   .content.hidden {
-    transform: translateY(25px);
-    opacity: 0; }
+    transform: translateY(25px); }
 
 .button {
   transition: background-color 0.1s ease, opacity 0.1s ease;
@@ -161,6 +168,9 @@ body {
 
 .notransition {
   transition: none; }
+
+.hidden {
+  opacity: 0; }
 
 .contact-form {
   max-width: 600px;

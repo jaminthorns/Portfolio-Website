@@ -1,5 +1,7 @@
 @import 'base';
 
-#current {
-    opacity: 0;
+.logo {
+    .section.current & {
+        height: 256px;
+    }
 }
