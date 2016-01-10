@@ -55,19 +55,26 @@ body {
   left: 0;
   z-index: -10; }
 
-.logo {
-  display: block;
-  height: 64px;
-  max-width: 100%;
-  margin: 0 auto 0 auto;
-  padding: 10px 0;
-  transition: height 0.25s ease, margin-top 0.25s ease; }
-  .logo path {
-    transition: stroke-dashoffset 2s linear; }
-    .logo path.draw {
-      stroke-dashoffset: 0; }
-  .logo circle {
-    transition: opacity 0.25s ease; }
+.blah {
+  width: 480px;
+  margin: auto;
+  padding: 0 20px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.6) 100%); }
+  .blah .logo {
+    display: block;
+    height: 64px;
+    max-width: 100%;
+    margin: 0 auto 0 auto;
+    padding: 10px 0;
+    transition: height 0.25s ease, margin-top 0.25s ease; }
+    .blah .logo path {
+      transition: stroke-dashoffset 2s linear; }
+      .blah .logo path.draw {
+        stroke-dashoffset: 0; }
+    .blah .logo circle {
+      transition: opacity 0.25s ease; }
+  .blah .section.current .logo {
+    height: 256px; }
 
 .header {
   width: 480px;
@@ -171,8 +178,5 @@ body {
 
 .hidden {
   opacity: 0; }
-
-.section.current .logo {
-  height: 256px; }
 
 /*# sourceMappingURL=home.css.map */
