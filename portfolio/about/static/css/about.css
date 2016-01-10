@@ -55,33 +55,34 @@ body {
   left: 0;
   z-index: -10; }
 
-.blah {
-  width: 480px;
-  margin: auto;
-  padding: 0 20px;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.6) 100%); }
-  .blah .logo {
-    display: block;
-    height: 64px;
-    max-width: 100%;
-    margin: 0 auto 0 auto;
-    padding: 10px 0;
-    transition: height 0.25s ease, margin-top 0.25s ease; }
-    .blah .logo path {
-      transition: stroke-dashoffset 2s linear; }
-      .blah .logo path.draw {
-        stroke-dashoffset: 0; }
-    .blah .logo circle {
-      transition: opacity 0.25s ease; }
-  .blah .section.current .logo {
-    height: 256px; }
-
 .header {
   width: 480px;
   margin: 0 auto 20px auto;
   padding: 0 20px;
   border-radius: 0 0 4px 4px;
-  background-color: rgba(255, 255, 255, 0.6); }
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.6) 100%); }
+  .header .logo {
+    display: block;
+    position: relative;
+    height: 64px;
+    max-width: 100%;
+    margin: 0 auto 0 auto;
+    padding: 10px 0;
+    transition: height 0.25s ease, margin-top 0.25s ease; }
+    .header .logo path {
+      transition: stroke-dashoffset 2s linear, stroke-width 0.25s ease;
+      stroke-width: 15px !important; }
+      .header .logo path.draw {
+        stroke-dashoffset: 0; }
+    .header .logo circle {
+      transition: opacity 0.25s ease, stroke-width 0.25s ease;
+      stroke-width: 5px !important; }
+  .header .section.current .logo {
+    height: 256px; }
+    .header .section.current .logo path {
+      stroke-width: 10px !important; }
+    .header .section.current .logo circle {
+      stroke-width: 0 !important; }
   .header .sections {
     display: flex;
     height: 48px; }
