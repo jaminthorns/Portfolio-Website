@@ -110,3 +110,8 @@ STATICFILES_DIRS = ( os.path.join(BASE_DIR, "static"), )
 MEDIA_ROOT = 'C:/Users/Jamin/Documents/GitHub/Portfolio-Website/portfolio/media/'
 
 MEDIA_URL = '/media/'
+
+
+# Custom settings
+
+EMAIL = 'test@test.com'
