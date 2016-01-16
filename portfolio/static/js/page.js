@@ -1,8 +1,6 @@
 $(document).ready(function() {
     $('body').addClass('js');
 
-    draw_logo()
-
     var current = $('.section.current');
     var colors = eval(current.attr('colors'));
 
@@ -12,22 +10,10 @@ $(document).ready(function() {
     $('body').on('click', '.section', click_section);
     $('body').on('transitionend', '#current', change_section);
     $(window).on('popstate', pop);
+    $(window).on('resize', function() { move_current(true); });
 
     triangles = new Triangles($('#background')[0], colors, 75, 2, 0.4, 10, 0.15, 25);
 });
-
-function draw_logo() {
-    var logo_path = $('.logo path');
-    var logo_length = logo_path[0].getTotalLength();
-
-    logo_path.css({'stroke-dasharray': logo_length + 1,
-                   'stroke-dashoffset': -logo_length});
-
-    logo_path[0].offsetHeight;
-    logo_path.css('stroke-dashoffset', 0);
-
-    logo_path.on('transitionend', function() { $('.logo circle').attr('class', ''); });
-}
 
 function click_section(event) {
     var target = $(event.currentTarget);
