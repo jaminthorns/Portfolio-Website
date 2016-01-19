@@ -115,3 +115,7 @@ MEDIA_URL = '/media/'
 # Custom settings
 
 EMAIL = 'test@test.com'
+
+BIRTHDAY = '09/17/1993'
+
+# datetime.datetime.strptime('12/31/2015', '%m/%d/%Y')

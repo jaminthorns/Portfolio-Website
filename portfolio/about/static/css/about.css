@@ -192,11 +192,30 @@ body {
 .js .hidden {
   opacity: 0 !important; }
 
-.about-text {
+.about {
+  display: flex;
+  flex-direction: column;
   max-width: 800px;
   margin: auto;
-  padding: 36px;
+  padding: 24px;
   border-radius: 4px 4px 0 0;
   background-color: rgba(255, 255, 255, 0.6); }
+  .about .about-section {
+    display: table;
+    flex-direction: row;
+    height: 150px;
+    margin-top: 24px; }
+    .about .about-section .text {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+      line-height: 1.25em;
+      font-size: 1.75em; }
+    .about .about-section .image {
+      width: 350px; }
+  .about .about-section:nth-child(odd) .text {
+    padding-left: 24px; }
+  .about .about-section:nth-child(even) .text {
+    padding-right: 24px; }
 
 /*# sourceMappingURL=about.css.map */
