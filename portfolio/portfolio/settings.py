@@ -116,6 +116,4 @@ MEDIA_URL = '/media/'
 
 EMAIL = 'test@test.com'
 
-BIRTHDAY = '09/17/1993'
-
-# datetime.datetime.strptime('12/31/2015', '%m/%d/%Y')
+BIRTHDAY = '01/01/1970'

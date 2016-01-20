@@ -1,6 +1,7 @@
 @import 'reset';
 
 $header-width: 480px;
+$logo-height: 256px;
 
 @font-face {
     font-family: 'Aquatico';
@@ -27,16 +28,17 @@ body {
                                 rgba(#FFFFFF, 0.2) 0%,
                                 rgba(#FFFFFF, 0.6) 100%);
 
-    .logo {
+    .logo-first {
         display: block;
         position: relative;
         height: 64px;
         max-width: 100%;
         margin: 0 auto 0 auto;
         padding: 10px 0;
-        transition: height 0.25s ease, margin-top 0.25s ease;
+        transition: height 0.25s ease, left 0.25s ease;
+        left: -70px;
 
-        @keyframes draw-logo {
+        @keyframes draw-path {
             from { stroke-dashoffset: -4000px; }
             to { stroke-dashoffset: 0px; }
         }
@@ -50,7 +52,7 @@ body {
             transition: stroke-width 0.25s ease;
             stroke-width: 15px;
             stroke-dasharray: 4001;
-            animation: 2s ease-out 0s draw-logo;
+            animation: 2s ease-out 0s draw-path;
         }
 
         circle {
@@ -62,11 +64,34 @@ body {
         }
     }
 
-    .section.current .logo {
-        height: 256px;
+    .section.current .logo-first {
+        height: $logo-height;
+        left: 0;
 
         path { stroke-width: 10px; }
         circle { stroke-width: 0px; }
+    }
+
+    .logo-last {
+        position: absolute;
+        transition: top 0.25s ease, left 0.25s ease, font-size 0.25s ease;
+        top: 28px;
+        left: calc(50% - 20px);
+        font-size: 1.5em;
+        opacity: 0;
+        animation: 0.25s linear 2.25s draw-name;
+        animation-fill-mode: forwards;
+
+        @keyframes draw-name {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    }
+
+    .section.current .logo-last {
+        top: $logo-height * 0.75;
+        left: calc(50% - 50px);
+        font-size: 2.25em;
     }
 
     .sections {

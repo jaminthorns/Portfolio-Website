@@ -61,15 +61,16 @@ body {
   padding: 0 20px;
   border-radius: 0 0 4px 4px;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.6) 100%); }
-  .header .logo {
+  .header .logo-first {
     display: block;
     position: relative;
     height: 64px;
     max-width: 100%;
     margin: 0 auto 0 auto;
     padding: 10px 0;
-    transition: height 0.25s ease, margin-top 0.25s ease; }
-@keyframes draw-logo {
+    transition: height 0.25s ease, left 0.25s ease;
+    left: -70px; }
+@keyframes draw-path {
   from {
     stroke-dashoffset: -4000px; }
   to {
@@ -79,23 +80,42 @@ body {
     opacity: 0; }
   to {
     opacity: 1; } }
-    .header .logo path {
+    .header .logo-first path {
       transition: stroke-width 0.25s ease;
       stroke-width: 15px;
       stroke-dasharray: 4001;
-      animation: 2s ease-out 0s draw-logo; }
-    .header .logo circle {
+      animation: 2s ease-out 0s draw-path; }
+    .header .logo-first circle {
       transition: stroke-width 0.25s ease;
       stroke-width: 5px;
       opacity: 0;
       animation: 0.25s linear 2s draw-dot;
       animation-fill-mode: forwards; }
-  .header .section.current .logo {
-    height: 256px; }
-    .header .section.current .logo path {
+  .header .section.current .logo-first {
+    height: 256px;
+    left: 0; }
+    .header .section.current .logo-first path {
       stroke-width: 10px; }
-    .header .section.current .logo circle {
+    .header .section.current .logo-first circle {
       stroke-width: 0px; }
+  .header .logo-last {
+    position: absolute;
+    transition: top 0.25s ease, left 0.25s ease, font-size 0.25s ease;
+    top: 28px;
+    left: calc(50% - 20px);
+    font-size: 1.5em;
+    opacity: 0;
+    animation: 0.25s linear 2.25s draw-name;
+    animation-fill-mode: forwards; }
+@keyframes draw-name {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+  .header .section.current .logo-last {
+    top: 192px;
+    left: calc(50% - 50px);
+    font-size: 2.25em; }
   .header .sections {
     display: flex;
     height: 48px; }
@@ -255,15 +275,16 @@ body {
   padding: 0 20px;
   border-radius: 0 0 4px 4px;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.6) 100%); }
-  .header .logo {
+  .header .logo-first {
     display: block;
     position: relative;
     height: 64px;
     max-width: 100%;
     margin: 0 auto 0 auto;
     padding: 10px 0;
-    transition: height 0.25s ease, margin-top 0.25s ease; }
-@keyframes draw-logo {
+    transition: height 0.25s ease, left 0.25s ease;
+    left: -70px; }
+@keyframes draw-path {
   from {
     stroke-dashoffset: -4000px; }
   to {
@@ -273,23 +294,42 @@ body {
     opacity: 0; }
   to {
     opacity: 1; } }
-    .header .logo path {
+    .header .logo-first path {
       transition: stroke-width 0.25s ease;
       stroke-width: 15px;
       stroke-dasharray: 4001;
-      animation: 2s ease-out 0s draw-logo; }
-    .header .logo circle {
+      animation: 2s ease-out 0s draw-path; }
+    .header .logo-first circle {
       transition: stroke-width 0.25s ease;
       stroke-width: 5px;
       opacity: 0;
       animation: 0.25s linear 2s draw-dot;
       animation-fill-mode: forwards; }
-  .header .section.current .logo {
-    height: 256px; }
-    .header .section.current .logo path {
+  .header .section.current .logo-first {
+    height: 256px;
+    left: 0; }
+    .header .section.current .logo-first path {
       stroke-width: 10px; }
-    .header .section.current .logo circle {
+    .header .section.current .logo-first circle {
       stroke-width: 0px; }
+  .header .logo-last {
+    position: absolute;
+    transition: top 0.25s ease, left 0.25s ease, font-size 0.25s ease;
+    top: 28px;
+    left: calc(50% - 20px);
+    font-size: 1.5em;
+    opacity: 0;
+    animation: 0.25s linear 2.25s draw-name;
+    animation-fill-mode: forwards; }
+@keyframes draw-name {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+  .header .section.current .logo-last {
+    top: 192px;
+    left: calc(50% - 50px);
+    font-size: 2.25em; }
   .header .sections {
     display: flex;
     height: 48px; }

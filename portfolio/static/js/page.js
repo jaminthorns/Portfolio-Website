@@ -40,7 +40,7 @@ function pop(event) {
 }
 
 function start_change_section(section, push) {
-    var home = $('.section.current .logo').length > 0;
+    var home = $('.section.current .logo-first').length > 0;
 
     // Hide content
     $('.content').addClass('hidden');
@@ -55,7 +55,7 @@ function start_change_section(section, push) {
         move_current(false);
         $('#current').removeClass('hidden'); }
     // Going to Home
-    else if ($('.section.current .logo').length > 0)
+    else if ($('.section.current .logo-first').length > 0)
         $('#current').addClass('hidden');
     // Go to somewhere else
     else
