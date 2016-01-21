@@ -21,6 +21,7 @@ $project-image-height: 200px;
         overflow: hidden;
         margin: 0 ($project-margin / 2) $project-margin ($project-margin / 2);
         border-radius: 4px;
+        background-color: rgba(#FFFFFF, 0.6);
 
         .image {
             width: 100%;

@@ -138,6 +138,7 @@ body {
 }
 
 .content {
+    margin: 0 20px;
     transition: transform 0.25s ease, opacity 0.25s ease;
 
     &.hidden { transform: translateY(25px); }
@@ -145,11 +146,11 @@ body {
 
 .button {
     transition: background-color 0.1s ease, opacity 0.1s ease;
-    background-color: rgba(#FFFFFF, 0.6);
+    opacity: 1;
     cursor: pointer;
 
-    &:hover { background-color: rgba(#FFFFFF, 0.9); }
-    &:active { background-color: rgba(#FFFFFF, 0.5); opacity: 0.75; }
+    &:hover { opacity: 0.9; }
+    &:active { opacity: 0.75; }
 }
 
 .markdown {

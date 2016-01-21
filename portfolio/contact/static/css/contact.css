@@ -146,18 +146,18 @@ body {
     transition: transform 0.25s ease, opacity 0.25s ease; }
 
 .content {
+  margin: 0 20px;
   transition: transform 0.25s ease, opacity 0.25s ease; }
   .content.hidden {
     transform: translateY(25px); }
 
 .button {
   transition: background-color 0.1s ease, opacity 0.1s ease;
-  background-color: rgba(255, 255, 255, 0.6);
+  opacity: 1;
   cursor: pointer; }
   .button:hover {
-    background-color: rgba(255, 255, 255, 0.9); }
+    opacity: 0.9; }
   .button:active {
-    background-color: rgba(255, 255, 255, 0.5);
     opacity: 0.75; }
 
 .markdown {
@@ -276,6 +276,7 @@ body {
   .contact-form .button {
     display: block;
     margin: 8px auto;
-    padding: 0 24px; }
+    padding: 0 24px;
+    background-color: rgba(255, 255, 255, 0.6); }
 
 /*# sourceMappingURL=contact.css.map */

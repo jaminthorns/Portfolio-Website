@@ -3,4 +3,4 @@ start sass -I ./portfolio/static/scss --watch ^
               ./portfolio/about/static/scss:./portfolio/about/static/css ^
               ./portfolio/contact/static/scss:./portfolio/contact/static/css ^
               ./portfolio/home/static/scss:./portfolio/home/static/css
-start python portfolio/manage.py runserver
+start python portfolio/manage.py runserver 10.0.0.6:8080
