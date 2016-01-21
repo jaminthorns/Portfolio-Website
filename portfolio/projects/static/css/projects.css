@@ -441,9 +441,21 @@ body {
   box-sizing: border-box;
   display: flex;
   flex-direction: column; }
-  .project-detail .title {
-    font-size: 2em;
-    font-weight: bold; }
+  .project-detail .heading {
+    display: flex; }
+    .project-detail .heading .title {
+      font-size: 2em;
+      font-weight: bold;
+      flex: 1; }
+    .project-detail .heading .close {
+      height: 32px;
+      width: 32px;
+      cursor: pointer; }
+      .project-detail .heading .close path {
+        stroke-width: 4px;
+        transition: stroke-width 0.25s ease; }
+      .project-detail .heading .close:hover path {
+        stroke-width: 6px; }
   .project-detail .images {
     height: 200px;
     margin: 20px 0;

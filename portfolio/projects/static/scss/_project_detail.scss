@@ -19,9 +19,27 @@ $project-detail-width: 600px;
     display: flex;
     flex-direction: column;
 
-    .title {
-        font-size: 2em;
-        font-weight: bold;
+    .heading {
+        display: flex;
+
+        .title {
+            font-size: 2em;
+            font-weight: bold;
+            flex: 1;
+        }
+
+        .close {
+            height: 32px;
+            width: 32px;
+            cursor: pointer;
+
+            path {
+                stroke-width: 4px;
+                transition: stroke-width 0.25s ease;
+            }
+
+            &:hover path { stroke-width: 6px; }
+        }
     }
 
     .images {

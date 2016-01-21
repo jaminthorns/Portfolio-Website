@@ -42,14 +42,14 @@ function center_images(selected_image) {
 }
 
 function close_view_image(event) {
-    var target = $(event.target).closest('.view-image');
+    var view_image = $('.view-image');
 
     if (event.type == 'click') {
-        target.css('opacity', '0');
-        target.css('pointer-events', 'none');
+        view_image.css('opacity', '0');
+        view_image.css('pointer-events', 'none');
     }
-    else if (event.type == 'transitionend' && target.css('opacity') == 0) {
-        target.removeAttr('style');
-        target.removeClass('active');
+    else if (event.type == 'transitionend' && view_image.css('opacity') == 0) {
+        view_image.removeAttr('style');
+        view_image.removeClass('active');
     }
 }
