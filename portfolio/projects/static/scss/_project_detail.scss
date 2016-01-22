@@ -3,6 +3,9 @@
 $image-height: 200px;
 $project-detail-width: 600px;
 
+$tall: "(min-height: " + $image-height * 4 + ")";
+$short: "(max-height: " + $image-height * 4 ")";
+
 .project-detail {
     height: 100%;
     max-width: $project-detail-width;
@@ -43,10 +46,12 @@ $project-detail-width: 600px;
     }
 
     .images {
-        height: $image-height;
         margin: 20px 0;
         position: relative;
         display: flex;
+
+        @media #{$tall} { height: $image-height; }
+        @media #{$short} { height: 20vh; }
 
         transition: left 0.5s ease;
 
@@ -56,7 +61,8 @@ $project-detail-width: 600px;
             transition: box-shadow 0.1s ease;
 
             img {
-                height: $image-height;
+                @media #{$tall} { height: $image-height; }
+                @media #{$short} { height: 20vh; }
             }
 
             &:first-child { margin-left: 0; }

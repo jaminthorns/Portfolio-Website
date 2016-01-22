@@ -5,28 +5,34 @@ $project-width: 200px;
 $project-height: 365px;
 $project-margin: 20px;
 $project-image-height: 200px;
+$projects-width: ($project-width + $project-margin) * 4;
+$wide: "(min-width: " + $projects-width + ")";
+$narrow: "(max-width: " + $projects-width + ")";
 
 .projects {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin: auto;
-    max-width: ($project-width + $project-margin) * 4;
+    max-width: $projects-width;
 
     .project {
-        width: $project-width;
         height: $project-height;
-        display: inline-flex;
+        box-sizing: border-box;
+        display: flex;
         flex-direction: column;
         overflow: hidden;
         margin: 0 ($project-margin / 2) $project-margin ($project-margin / 2);
         border-radius: 4px;
         background-color: rgba(#FFFFFF, 0.6);
 
+        @media #{$wide} { flex: 0 1 $project-width; }
+        @media #{$narrow} { flex: 1 1 calc(50% - #{$project-margin}); }
+
         .image {
-            width: 100%;
             height: $project-image-height;
-            object-fit: cover;
+            background-size: cover;
+            background-position: 50% 50%;
         }
 
         .title {
@@ -49,7 +55,7 @@ $project-image-height: 200px;
     width: 100%;
     top: 0;
     left: 0;
-    position: absolute;
+    position: fixed;
     background-color: rgba(0, 0, 0, 0.5);
     transition: opacity 0.25s ease;
     visibility: hidden;

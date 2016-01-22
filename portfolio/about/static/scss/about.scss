@@ -1,22 +1,24 @@
 @import 'base';
 
+$about-width: 800px;
+$wide: "(min-width: " + $about-width + ")";
+$narrow: "(max-width: " + $about-width + ")";
+
 .about {
     display: flex;
     flex-direction: column;
-    max-width: 800px;
+    max-width: $about-width;
     margin: auto;
     padding: 24px;
     border-radius: 4px 4px 0 0;
     background-color: rgba(#FFFFFF, 0.6);
 
     .about-section {
-        display: table;
-        flex-direction: row;
-        height: 150px;
+        display: flex;
         margin-top: 24px;
+        align-items: center;
 
         .text {
-            display: table-cell;
             vertical-align: middle;
             text-align: center;
             line-height: 1.25em;
@@ -29,15 +31,29 @@
         }
 
         .image {
-            width: 350px;
+            @media #{$wide} { width: 350px; }
+
+            @media #{$narrow} {
+                width: 80%;
+                margin-bottom: 12px;
+            }
         }
-    }
 
-    .about-section:nth-child(odd) {
-        .text { padding-left: 24px; }
-    }
+        @media #{$narrow} { flex-direction: column; }
 
-    .about-section:nth-child(even) {
-        .text { padding-right: 24px; }
+        @media #{$wide} {
+            &:nth-child(odd) {
+                flex-direction: row;
+
+                .text { padding-left: 24px; }
+            }
+
+            &:nth-child(even) {
+                flex-direction: row-reverse;
+
+                .text { padding-right: 24px; }
+            }
+        }
+
     }
 }

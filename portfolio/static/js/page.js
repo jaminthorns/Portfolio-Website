@@ -6,11 +6,12 @@ $(document).ready(function() {
 
     document.title = current.attr('title');
     move_current(false);
+    resize_current();
 
     $('body').on('click', '.section', click_section);
     $('body').on('transitionend', '#current', change_section);
     $(window).on('popstate', pop);
-    $(window).on('resize', function() { move_current(true); });
+    $(window).on('resize', function() { move_current(true); resize_current(); });
 
     triangles = new Triangles($('#background')[0], colors, 75, 2, 0.4, 10, 0.15, 25);
 });
@@ -67,6 +68,10 @@ function start_change_section(section, push) {
 
 function change_section(event) {
     $.ajax($('.section.current').attr('href')).done(load_new_page);
+}
+
+function resize_current() {
+    $('#current').width($('.sections .section').width());
 }
 
 function move_current(animate) {

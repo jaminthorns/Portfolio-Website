@@ -54,7 +54,7 @@ Triangles.prototype = {
             for (var i in this.triangles) {
                 if (this.circle.point_in(this.triangles[i].center()))
                     this.triangles[i].step(this.morph_speed, 0.1);
-                
+
                 this.triangles[i].draw(this.context);
             }
 
@@ -99,7 +99,7 @@ Triangles.prototype = {
 
     morph: function(x, y, colors) {
         this.randomize();
-        
+
         if (colors) {
             this.colors = colors;
             this.color_triangles(colors);
@@ -207,7 +207,7 @@ Triangle.prototype = {
     set_dest: function(dest_c) {
         this.dest_c = dest_c;
     },
-    
+
     draw: function(context) {
         var color = this.color();
         context.fillStyle = color;

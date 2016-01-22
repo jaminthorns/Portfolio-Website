@@ -2,6 +2,8 @@
 
 $header-width: 480px;
 $logo-height: 256px;
+$wide: "(min-width: " + $header-width + ")";
+$narrow: "(max-width: " + $header-width + ")";
 
 @font-face {
     font-family: 'Aquatico';
@@ -10,6 +12,7 @@ $logo-height: 256px;
 
 body {
     overflow-y: scroll;
+    margin: 0 20px;
 }
 
 #background {
@@ -117,8 +120,10 @@ body {
 
             span {
                 margin: auto;
-                font-size: 1.25em;
                 font-family: Aquatico;
+
+                @media #{$wide} { font-size: 1.25em; }
+                @media #{$narrow} { font-size: 1em; }
 
                 em {
                     font-size: 1.25em;
@@ -138,7 +143,6 @@ body {
 }
 
 .content {
-    margin: 0 20px;
     transition: transform 0.25s ease, opacity 0.25s ease;
 
     &.hidden { transform: translateY(25px); }

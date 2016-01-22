@@ -1,8 +1,12 @@
 @import 'base';
 
+$contact-width: 600px;
+$wide: "(min-width: " + $contact-width + ")";
+$narrow: "(max-width: " + $contact-width + ")";
+
 .contact-form {
 
-    max-width: 600px;
+    max-width: $contact-width;
     margin: auto;
 
     * {
@@ -41,11 +45,12 @@
     }
 
     .name, .email {
-        width: calc(50% - 4px);
+        @media #{$wide} { width: calc(50% - 4px); }
+        @media #{$narrow} { width: 100%; }
     }
 
     .email {
-        float: right;
+        @media #{$wide} { float: right; };
     }
 
     .subject, .message {
