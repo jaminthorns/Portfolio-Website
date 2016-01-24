@@ -230,7 +230,6 @@ body {
     margin-top: 24px;
     align-items: center; }
     .about .about-section .text {
-      vertical-align: middle;
       text-align: center;
       line-height: 1.25em;
       font-size: 1.75em; }

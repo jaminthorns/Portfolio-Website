@@ -4,68 +4,97 @@ $contact-width: 600px;
 $wide: "(min-width: " + $contact-width + ")";
 $narrow: "(max-width: " + $contact-width + ")";
 
-.contact-form {
+.contact {
 
     max-width: $contact-width;
     margin: auto;
 
-    * {
-        height: 36px;
-        border-style: none;
-        border-radius: 4px;
-        box-sizing: border-box;
-        font-size: 1.25em;
-        font-family: Sans-Serif;
-        outline: none;
+    .text {
+        display: block;
+        margin: 24px 0;
+        font-size: 1.5em;
+        width: 100%;
+        text-align: center;
     }
 
-    .contact-input {
-        padding: 8px;
-        margin: 4px 0;
-        background-color: rgba(#FFFFFF, 0.75);
-        border-radius: 4px;
-        transition: background-color 0.25s ease;
+    .links {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-bottom: 48px;
 
-        @include placeholder {
-            color: #B0B0B0;
+        justify-content: center;
+
+        .link {
+            display: block;
+            height: 64px;
+            width: 64px;
+            border-radius: 4px;
+
+            & + .link { margin-left: 10px; }
+        }
+    }
+
+    .contact-form {
+
+        * {
+            height: 36px;
+            border-style: none;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 1.25em;
             font-family: Sans-Serif;
-            text-transform: uppercase;
-            text-align: center;
-            opacity: 1;
+            outline: none;
         }
 
-        &:focus {
-            background-color: rgba(#808080, 0.75);
-            color: #FFFFFF;
+        .contact-input {
+            padding: 8px;
+            margin: 4px 0;
+            background-color: rgba(#FFFFFF, 0.75);
+            border-radius: 4px;
+            transition: background-color 0.25s ease;
 
             @include placeholder {
+                color: #B0B0B0;
+                font-family: Sans-Serif;
+                text-transform: uppercase;
+                text-align: center;
+                opacity: 1;
+            }
+
+            &:focus {
+                background-color: rgba(#808080, 0.75);
                 color: #FFFFFF;
+
+                @include placeholder {
+                    color: #FFFFFF;
+                }
             }
         }
-    }
 
-    .name, .email {
-        @media #{$wide} { width: calc(50% - 4px); }
-        @media #{$narrow} { width: 100%; }
-    }
+        .name, .email {
+            @media #{$wide} { width: calc(50% - 4px); }
+            @media #{$narrow} { width: 100%; }
+        }
 
-    .email {
-        @media #{$wide} { float: right; };
-    }
+        .email {
+            @media #{$wide} { float: right; };
+        }
 
-    .subject, .message {
-        width: 100%;
-    }
+        .subject, .message {
+            width: 100%;
+        }
 
-    .message {
-        height: 300px;
-        resize: none;
-    }
+        .message {
+            height: 300px;
+            resize: none;
+        }
 
-    .button {
-        display: block;
-        margin: 8px auto;
-        padding: 0 24px;
-        background-color: rgba(#FFFFFF, 0.6);
+        .button {
+            display: block;
+            margin: 8px auto;
+            padding: 0 24px;
+            background-color: rgba(#FFFFFF, 0.6);
+        }
     }
 }

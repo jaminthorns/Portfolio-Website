@@ -117,3 +117,24 @@ MEDIA_URL = '/media/'
 EMAIL = 'test@test.com'
 
 BIRTHDAY = '01/01/1970'
+
+LINKS = [
+    {
+        'title': 'Facebook',
+        'url': 'https://www.facebook.com/',
+        'img': 'svg/facebook.svg',
+        'color': '#3B5998'
+    },
+    {
+        'title': 'LinkedIn',
+        'url': 'https://www.linkedin.com/',
+        'img': 'svg/linkedin.svg',
+        'color': '#0077B5'
+    },
+    {
+        'title': 'GitHub',
+        'url': 'https://github.com/',
+        'img': 'svg/github.svg',
+        'color': '#F5F5F5'
+    },
+]

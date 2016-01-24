@@ -9,9 +9,9 @@ $(document).ready(function() {
     resize_current();
 
     $('body').on('click', '.section', click_section);
-    $('body').on('transitionend', '#current', change_section);
+    $('body').on('transitionend', '.content', change_section);
     $(window).on('popstate', pop);
-    $(window).on('resize', function() { move_current(true); resize_current(); });
+    $(window).on('resize', function() { move_current(false); resize_current(); });
 
     triangles = new Triangles($('#background')[0], colors, 75, 2, 0.4, 10, 0.15, 25);
 });
@@ -20,10 +20,10 @@ function click_section(event) {
     var target = $(event.currentTarget);
     var colors = eval(target.attr('colors'));
 
-    triangles.morph(event.pageX, event.pageY, colors);
-
-    if (!target.hasClass('current'))
+    if (!target.hasClass('current')) {
+        triangles.morph(event.pageX, event.pageY, colors);
         start_change_section(target, true);
+    }
 
     return false;
 }
@@ -67,7 +67,8 @@ function start_change_section(section, push) {
 }
 
 function change_section(event) {
-    $.ajax($('.section.current').attr('href')).done(load_new_page);
+    if ($('.content').hasClass('hidden'))
+        $.ajax($('.section.current').attr('href')).done(load_new_page);
 }
 
 function resize_current() {
@@ -83,8 +84,7 @@ function move_current(animate) {
 
     current.css('transform', 'translateX(' + translate + 'px)');
 
-    if (!animate)
-    {
+    if (!animate) {
         current[0].offsetHeight;
         current.removeClass('notransition');
     }

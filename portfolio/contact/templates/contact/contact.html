@@ -13,10 +13,24 @@
 
 {% block content %}
 
-<form class="contact-form" action="{% url 'contact' %}" method="post">
-    {% csrf_token %}
-    {{ contact_form }}
-    <input class="button" type="submit" value="Send" />
-</form>
+<div class="contact">
+    <span class="text">You can find me on the {{ term }}</span>
+
+    <div class="links">
+        {% for link in links %}
+            <a class="link button" title="{{ link.title }}" target="_blank" href="{{ link.url }}" style="background-color: {{ link.color }}">
+                <img class="image" src="{% static link.img %}"></img>
+            </a>
+        {% endfor %}
+    </div>
+
+    <span class="text">Or, you can contact me directly</span>
+
+    <form class="contact-form" action="{% url 'contact' %}" method="post">
+        {% csrf_token %}
+        {{ contact_form }}
+        <input class="button" type="submit" value="Send" />
+    </form>
+</div>
 
 {% endblock %}
