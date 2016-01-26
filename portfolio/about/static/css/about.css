@@ -16,7 +16,7 @@ time, mark, audio, video {
   border: 0;
   font-size: 100%;
   font: inherit;
-  font-family: sans-serif;
+  font-family: Base;
   vertical-align: baseline;
   color: black; }
 
@@ -44,8 +44,21 @@ table {
   border-spacing: 0; }
 
 @font-face {
-  font-family: 'Aquatico';
-  src: url("/static/font/Aquatico-Regular.otf"); }
+  font-family: 'Base';
+  src: url("/static/font/Kreon-Light.ttf");
+  font-weight: normal; }
+@font-face {
+  font-family: 'Base';
+  src: url("/static/font/Kreon-Regular.ttf");
+  font-weight: bold; }
+@font-face {
+  font-family: 'Montserrat';
+  src: url("/static/font/Montserrat-Light.otf");
+  font-weight: normal; }
+@font-face {
+  font-family: 'Montserrat';
+  src: url("/static/font/Montserrat-Regular.otf");
+  font-weight: bold; }
 body {
   overflow-y: scroll;
   margin: 0 20px; }
@@ -70,7 +83,7 @@ body {
     margin: 0 auto 0 auto;
     padding: 10px 0;
     transition: height 0.25s ease, left 0.25s ease;
-    left: -70px; }
+    left: -65px; }
 @keyframes draw-path {
   from {
     stroke-dashoffset: -4000px; }
@@ -103,11 +116,13 @@ body {
     position: absolute;
     transition: top 0.25s ease, left 0.25s ease, font-size 0.25s ease;
     top: 28px;
-    left: calc(50% - 20px);
+    left: calc(50% - 15px);
     font-size: 1.5em;
     opacity: 0;
     animation: 0.25s linear 2.25s draw-name;
-    animation-fill-mode: forwards; }
+    animation-fill-mode: forwards;
+    font-family: Base;
+    font-weight: bold; }
 @keyframes draw-name {
   from {
     opacity: 0; }
@@ -134,7 +149,8 @@ body {
           border-bottom-width: 3px; }
       .header .sections .section span {
         margin: auto;
-        font-family: Aquatico; }
+        font-family: Montserrat;
+        text-transform: uppercase; }
         @media (min-width: 480px) {
           .header .sections .section span {
             font-size: 1.25em; } }
@@ -143,7 +159,7 @@ body {
             font-size: 1em; } }
         .header .sections .section span em {
           font-size: 1.25em;
-          font-family: Aquatico; }
+          font-family: Montserrat; }
   body.js .header #current {
     position: relative;
     width: 160px;
@@ -159,7 +175,8 @@ body {
 .button {
   transition: background-color 0.1s ease, opacity 0.1s ease;
   opacity: 1;
-  cursor: pointer; }
+  cursor: pointer;
+  font-weight: bold; }
   .button:hover {
     opacity: 0.9; }
   .button:active {

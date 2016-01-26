@@ -5,23 +5,28 @@ $wide: "(min-width: " + $contact-width + ")";
 $narrow: "(max-width: " + $contact-width + ")";
 
 .contact {
-
+    display: flex;
+    flex-direction: column;
     max-width: $contact-width;
     margin: auto;
+    align-items: center;
 
     .text {
         display: block;
-        margin: 24px 0;
+        margin-bottom: 20px;
+        padding: 10px;
         font-size: 1.5em;
-        width: 100%;
+        line-height: 1.25em;
         text-align: center;
+        border-radius: 4px;
+        background-color: rgba(#FFFFFF, 0.6);
     }
 
     .links {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        margin-bottom: 48px;
+        margin-bottom: 40px;
 
         justify-content: center;
 
@@ -36,6 +41,7 @@ $narrow: "(max-width: " + $contact-width + ")";
     }
 
     .contact-form {
+        margin-bottom: 20px;
 
         * {
             height: 36px;
@@ -43,7 +49,7 @@ $narrow: "(max-width: " + $contact-width + ")";
             border-radius: 4px;
             box-sizing: border-box;
             font-size: 1.25em;
-            font-family: Sans-Serif;
+            font-family: Base;
             outline: none;
         }
 
@@ -51,12 +57,11 @@ $narrow: "(max-width: " + $contact-width + ")";
             padding: 8px;
             margin: 4px 0;
             background-color: rgba(#FFFFFF, 0.75);
-            border-radius: 4px;
             transition: background-color 0.25s ease;
 
             @include placeholder {
                 color: #B0B0B0;
-                font-family: Sans-Serif;
+                font-family: Base;
                 text-transform: uppercase;
                 text-align: center;
                 opacity: 1;

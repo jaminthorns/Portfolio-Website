@@ -5,10 +5,32 @@ $logo-height: 256px;
 $wide: "(min-width: " + $header-width + ")";
 $narrow: "(max-width: " + $header-width + ")";
 
+
 @font-face {
-    font-family: 'Aquatico';
-    src: url('/static/font/Aquatico-Regular.otf');
+    font-family: 'Base';
+    src: url('/static/font/Kreon-Light.ttf');
+    font-weight: normal;
 }
+
+@font-face {
+    font-family: 'Base';
+    src: url('/static/font/Kreon-Regular.ttf');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/static/font/Montserrat-Light.otf');
+    font-weight: normal;
+}
+
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/static/font/Montserrat-Regular.otf');
+    font-weight: bold;
+}
+
 
 body {
     overflow-y: scroll;
@@ -39,7 +61,7 @@ body {
         margin: 0 auto 0 auto;
         padding: 10px 0;
         transition: height 0.25s ease, left 0.25s ease;
-        left: -70px;
+        left: -65px;
 
         @keyframes draw-path {
             from { stroke-dashoffset: -4000px; }
@@ -79,11 +101,13 @@ body {
         position: absolute;
         transition: top 0.25s ease, left 0.25s ease, font-size 0.25s ease;
         top: 28px;
-        left: calc(50% - 20px);
+        left: calc(50% - 15px);
         font-size: 1.5em;
         opacity: 0;
         animation: 0.25s linear 2.25s draw-name;
         animation-fill-mode: forwards;
+        font-family: Base;
+        font-weight: bold;
 
         @keyframes draw-name {
             from { opacity: 0; }
@@ -120,14 +144,15 @@ body {
 
             span {
                 margin: auto;
-                font-family: Aquatico;
+                font-family: Montserrat;
+                text-transform: uppercase;
 
                 @media #{$wide} { font-size: 1.25em; }
                 @media #{$narrow} { font-size: 1em; }
 
                 em {
                     font-size: 1.25em;
-                    font-family: Aquatico;
+                    font-family: Montserrat;
                 }
             }
         }
@@ -152,6 +177,7 @@ body {
     transition: background-color 0.1s ease, opacity 0.1s ease;
     opacity: 1;
     cursor: pointer;
+    font-weight: bold;
 
     &:hover { opacity: 0.9; }
     &:active { opacity: 0.75; }

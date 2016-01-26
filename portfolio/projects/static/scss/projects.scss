@@ -36,16 +36,22 @@ $narrow: "(max-width: " + $projects-width + ")";
         }
 
         .title {
-            margin: 10px 10px 5px 10px;
+            margin: 20px 20px 10px 20px;
             font-size: 14pt;
             font-weight: bold;
         }
 
         .description {
-            margin: 0 10px 10px 10px;
+            margin: 0 20px 20px 20px;
             overflow: hidden;
             flex: 1;
             line-height: 1.25em;
+            font-weight: normal;
+
+            a {
+                text-decoration: none;
+                pointer-events: none;
+            }
         }
     }
 }

@@ -13,7 +13,7 @@ $(document).ready(function() {
     $(window).on('popstate', pop);
     $(window).on('resize', function() { move_current(false); resize_current(); });
 
-    triangles = new Triangles($('#background')[0], colors, 75, 2, 0.4, 10, 0.15, 25);
+    triangles = new Triangles($('#background')[0], colors, 100, 2, 0.4, 10, 0.15, 25);
 });
 
 function click_section(event) {

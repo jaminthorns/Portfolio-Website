@@ -22,24 +22,27 @@ function Triangles(canvas, colors, size, over, spread, color_range, morph_speed,
 Triangles.prototype = {
 
     reset: function() {
-        this.points = {};
-        this.triangles = [];
-        this.circle = new Circle(0, 0, 0);
-        this.circle.r = 1;
+        if (this.canvas.width != window.innerWidth ||
+            this.canvas.height < window.innerHeight) {
+            this.points = {};
+            this.triangles = [];
+            this.circle = new Circle(0, 0, 0);
+            this.circle.r = 1;
 
-        this.make_points();
-        this.make_triangles();
+            this.make_points();
+            this.make_triangles();
 
-        // Initially randomize triangles
-        this.randomize();
-        for (var i in this.points) this.points[i].step(1, 1);
-        // Initially color triangles
-        this.color_triangles(this.colors);
-        for (var i in this.triangles) this.triangles[i].c = this.triangles[i].dest_c;
+            // Initially randomize triangles
+            this.randomize();
+            for (var i in this.points) this.points[i].step(1, 1);
+            // Initially color triangles
+            this.color_triangles(this.colors);
+            for (var i in this.triangles) this.triangles[i].c = this.triangles[i].dest_c;
 
-        // Resize canvas
-        this.canvas.width = window.innerWidth;
-        this.canvas.height = window.innerHeight;
+            // Resize canvas
+            this.canvas.width = window.innerWidth;
+            this.canvas.height = window.innerHeight + (window.innerHeight * 0.2);
+        }
     },
 
     draw: function() {

@@ -16,7 +16,7 @@ time, mark, audio, video {
   border: 0;
   font-size: 100%;
   font: inherit;
-  font-family: sans-serif;
+  font-family: Base;
   vertical-align: baseline;
   color: black; }
 
@@ -44,8 +44,21 @@ table {
   border-spacing: 0; }
 
 @font-face {
-  font-family: 'Aquatico';
-  src: url("/static/font/Aquatico-Regular.otf"); }
+  font-family: 'Base';
+  src: url("/static/font/Kreon-Light.ttf");
+  font-weight: normal; }
+@font-face {
+  font-family: 'Base';
+  src: url("/static/font/Kreon-Regular.ttf");
+  font-weight: bold; }
+@font-face {
+  font-family: 'Montserrat';
+  src: url("/static/font/Montserrat-Light.otf");
+  font-weight: normal; }
+@font-face {
+  font-family: 'Montserrat';
+  src: url("/static/font/Montserrat-Regular.otf");
+  font-weight: bold; }
 body {
   overflow-y: scroll;
   margin: 0 20px; }
@@ -70,7 +83,7 @@ body {
     margin: 0 auto 0 auto;
     padding: 10px 0;
     transition: height 0.25s ease, left 0.25s ease;
-    left: -70px; }
+    left: -65px; }
 @keyframes draw-path {
   from {
     stroke-dashoffset: -4000px; }
@@ -103,11 +116,13 @@ body {
     position: absolute;
     transition: top 0.25s ease, left 0.25s ease, font-size 0.25s ease;
     top: 28px;
-    left: calc(50% - 20px);
+    left: calc(50% - 15px);
     font-size: 1.5em;
     opacity: 0;
     animation: 0.25s linear 2.25s draw-name;
-    animation-fill-mode: forwards; }
+    animation-fill-mode: forwards;
+    font-family: Base;
+    font-weight: bold; }
 @keyframes draw-name {
   from {
     opacity: 0; }
@@ -134,7 +149,8 @@ body {
           border-bottom-width: 3px; }
       .header .sections .section span {
         margin: auto;
-        font-family: Aquatico; }
+        font-family: Montserrat;
+        text-transform: uppercase; }
         @media (min-width: 480px) {
           .header .sections .section span {
             font-size: 1.25em; } }
@@ -143,7 +159,7 @@ body {
             font-size: 1em; } }
         .header .sections .section span em {
           font-size: 1.25em;
-          font-family: Aquatico; }
+          font-family: Montserrat; }
   body.js .header #current {
     position: relative;
     width: 160px;
@@ -159,7 +175,8 @@ body {
 .button {
   transition: background-color 0.1s ease, opacity 0.1s ease;
   opacity: 1;
-  cursor: pointer; }
+  cursor: pointer;
+  font-weight: bold; }
   .button:hover {
     opacity: 0.9; }
   .button:active {
@@ -218,19 +235,25 @@ body {
   opacity: 0 !important; }
 
 .contact {
+  display: flex;
+  flex-direction: column;
   max-width: 600px;
-  margin: auto; }
+  margin: auto;
+  align-items: center; }
   .contact .text {
     display: block;
-    margin: 24px 0;
+    margin-bottom: 20px;
+    padding: 10px;
     font-size: 1.5em;
-    width: 100%;
-    text-align: center; }
+    line-height: 1.25em;
+    text-align: center;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.6); }
   .contact .links {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    margin-bottom: 48px;
+    margin-bottom: 40px;
     justify-content: center; }
     .contact .links .link {
       display: block;
@@ -239,73 +262,74 @@ body {
       border-radius: 4px; }
       .contact .links .link + .link {
         margin-left: 10px; }
-  .contact .contact-form * {
-    height: 36px;
-    border-style: none;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 1.25em;
-    font-family: Sans-Serif;
-    outline: none; }
-  .contact .contact-form .contact-input {
-    padding: 8px;
-    margin: 4px 0;
-    background-color: rgba(255, 255, 255, 0.75);
-    border-radius: 4px;
-    transition: background-color 0.25s ease; }
-    .contact .contact-form .contact-input::-webkit-input-placeholder {
-      color: #B0B0B0;
-      font-family: Sans-Serif;
-      text-transform: uppercase;
-      text-align: center;
-      opacity: 1; }
-    .contact .contact-form .contact-input:-moz-placeholder {
-      color: #B0B0B0;
-      font-family: Sans-Serif;
-      text-transform: uppercase;
-      text-align: center;
-      opacity: 1; }
-    .contact .contact-form .contact-input::-moz-placeholder {
-      color: #B0B0B0;
-      font-family: Sans-Serif;
-      text-transform: uppercase;
-      text-align: center;
-      opacity: 1; }
-    .contact .contact-form .contact-input:-ms-input-placeholder {
-      color: #B0B0B0;
-      font-family: Sans-Serif;
-      text-transform: uppercase;
-      text-align: center;
-      opacity: 1; }
-    .contact .contact-form .contact-input:focus {
-      background-color: rgba(128, 128, 128, 0.75);
-      color: #FFFFFF; }
-      .contact .contact-form .contact-input:focus::-webkit-input-placeholder {
+  .contact .contact-form {
+    margin-bottom: 20px; }
+    .contact .contact-form * {
+      height: 36px;
+      border-style: none;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 1.25em;
+      font-family: Base;
+      outline: none; }
+    .contact .contact-form .contact-input {
+      padding: 8px;
+      margin: 4px 0;
+      background-color: rgba(255, 255, 255, 0.75);
+      transition: background-color 0.25s ease; }
+      .contact .contact-form .contact-input::-webkit-input-placeholder {
+        color: #B0B0B0;
+        font-family: Base;
+        text-transform: uppercase;
+        text-align: center;
+        opacity: 1; }
+      .contact .contact-form .contact-input:-moz-placeholder {
+        color: #B0B0B0;
+        font-family: Base;
+        text-transform: uppercase;
+        text-align: center;
+        opacity: 1; }
+      .contact .contact-form .contact-input::-moz-placeholder {
+        color: #B0B0B0;
+        font-family: Base;
+        text-transform: uppercase;
+        text-align: center;
+        opacity: 1; }
+      .contact .contact-form .contact-input:-ms-input-placeholder {
+        color: #B0B0B0;
+        font-family: Base;
+        text-transform: uppercase;
+        text-align: center;
+        opacity: 1; }
+      .contact .contact-form .contact-input:focus {
+        background-color: rgba(128, 128, 128, 0.75);
         color: #FFFFFF; }
-      .contact .contact-form .contact-input:focus:-moz-placeholder {
-        color: #FFFFFF; }
-      .contact .contact-form .contact-input:focus::-moz-placeholder {
-        color: #FFFFFF; }
-      .contact .contact-form .contact-input:focus:-ms-input-placeholder {
-        color: #FFFFFF; }
-  @media (min-width: 600px) {
-    .contact .contact-form .name, .contact .contact-form .email {
-      width: calc(50% - 4px); } }
-  @media (max-width: 600px) {
-    .contact .contact-form .name, .contact .contact-form .email {
-      width: 100%; } }
-  @media (min-width: 600px) {
-    .contact .contact-form .email {
-      float: right; } }
-  .contact .contact-form .subject, .contact .contact-form .message {
-    width: 100%; }
-  .contact .contact-form .message {
-    height: 300px;
-    resize: none; }
-  .contact .contact-form .button {
-    display: block;
-    margin: 8px auto;
-    padding: 0 24px;
-    background-color: rgba(255, 255, 255, 0.6); }
+        .contact .contact-form .contact-input:focus::-webkit-input-placeholder {
+          color: #FFFFFF; }
+        .contact .contact-form .contact-input:focus:-moz-placeholder {
+          color: #FFFFFF; }
+        .contact .contact-form .contact-input:focus::-moz-placeholder {
+          color: #FFFFFF; }
+        .contact .contact-form .contact-input:focus:-ms-input-placeholder {
+          color: #FFFFFF; }
+    @media (min-width: 600px) {
+      .contact .contact-form .name, .contact .contact-form .email {
+        width: calc(50% - 4px); } }
+    @media (max-width: 600px) {
+      .contact .contact-form .name, .contact .contact-form .email {
+        width: 100%; } }
+    @media (min-width: 600px) {
+      .contact .contact-form .email {
+        float: right; } }
+    .contact .contact-form .subject, .contact .contact-form .message {
+      width: 100%; }
+    .contact .contact-form .message {
+      height: 300px;
+      resize: none; }
+    .contact .contact-form .button {
+      display: block;
+      margin: 8px auto;
+      padding: 0 24px;
+      background-color: rgba(255, 255, 255, 0.6); }
 
 /*# sourceMappingURL=contact.css.map */
