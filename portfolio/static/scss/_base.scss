@@ -2,6 +2,8 @@
 
 $header-width: 480px;
 $logo-height: 256px;
+$body-padding: 20px;
+$buffer: ($body-padding * 2) + 30px;
 $wide: "(min-width: " + $header-width + ")";
 $narrow: "(max-width: " + $header-width + ")";
 
@@ -34,7 +36,7 @@ $narrow: "(max-width: " + $header-width + ")";
 
 body {
     overflow-y: scroll;
-    margin: 0 20px;
+    padding: 0 $body-padding;
 }
 
 #background {

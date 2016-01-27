@@ -6,8 +6,8 @@ $project-height: 365px;
 $project-margin: 20px;
 $project-image-height: 200px;
 $projects-width: ($project-width + $project-margin) * 4;
-$wide: "(min-width: " + $projects-width + ")";
-$narrow: "(max-width: " + $projects-width + ")";
+$wide: "(min-width: " + (($projects-width / 2) + $buffer) + ")";
+$narrow: "(max-width: " + (($projects-width / 2) + $buffer) + ")";
 
 .projects {
     display: flex;
@@ -22,12 +22,20 @@ $narrow: "(max-width: " + $projects-width + ")";
         display: flex;
         flex-direction: column;
         overflow: hidden;
-        margin: 0 ($project-margin / 2) $project-margin ($project-margin / 2);
         border-radius: 4px;
         background-color: rgba(#FFFFFF, 0.6);
 
-        @media #{$wide} { flex: 0 1 $project-width; }
-        @media #{$narrow} { flex: 1 1 calc(50% - #{$project-margin}); }
+        @media #{$wide} {
+            flex: 0 1 $project-width;
+            margin: 0 ($project-margin / 2) $project-margin ($project-margin / 2);
+        }
+        @media #{$narrow} {
+            flex: 1 1 calc(50% - #{$project-margin});
+            margin-bottom: $project-margin;
+
+            &:nth-child(odd) { margin-right: $project-margin / 2; }
+            &:nth-child(even) { margin-left: $project-margin / 2; }
+        }
 
         .image {
             height: $project-image-height;

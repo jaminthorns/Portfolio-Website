@@ -61,7 +61,7 @@ table {
   font-weight: bold; }
 body {
   overflow-y: scroll;
-  margin: 0 20px; }
+  padding: 0 20px; }
 
 #background {
   position: fixed;
@@ -238,33 +238,35 @@ body {
   display: flex;
   flex-direction: column;
   max-width: 600px;
-  margin: auto;
-  align-items: center; }
-  .contact .text {
-    display: block;
+  margin: auto; }
+  @media (min-width: 670px) {
+    .contact {
+      align-items: center; } }
+  @media (max-width: 670px) {
+    .contact {
+      align-items: stretch; } }
+  .contact .contact-section {
     margin-bottom: 20px;
-    padding: 10px;
-    font-size: 1.5em;
-    line-height: 1.25em;
-    text-align: center;
+    padding: 20px;
     border-radius: 4px;
     background-color: rgba(255, 255, 255, 0.6); }
-  .contact .links {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-bottom: 40px;
-    justify-content: center; }
-    .contact .links .link {
+    .contact .contact-section .text {
       display: block;
-      height: 64px;
-      width: 64px;
-      border-radius: 4px; }
-      .contact .links .link + .link {
-        margin-left: 10px; }
-  .contact .contact-form {
-    margin-bottom: 20px; }
-    .contact .contact-form * {
+      margin-bottom: 20px;
+      font-size: 1.5em;
+      line-height: 1.25em;
+      text-align: center; }
+    .contact .contact-section .links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center; }
+      .contact .contact-section .links .link {
+        height: 64px;
+        width: 64px;
+        border-radius: 4px; }
+        .contact .contact-section .links .link + .link {
+          margin-left: 10px; }
+    .contact .contact-section .contact-form * {
       height: 36px;
       border-style: none;
       border-radius: 4px;
@@ -272,63 +274,63 @@ body {
       font-size: 1.25em;
       font-family: Base;
       outline: none; }
-    .contact .contact-form .contact-input {
+    .contact .contact-section .contact-form .contact-input {
       padding: 8px;
       margin: 4px 0;
-      background-color: rgba(255, 255, 255, 0.75);
+      background-color: rgba(255, 255, 255, 0.6);
       transition: background-color 0.25s ease; }
-      .contact .contact-form .contact-input::-webkit-input-placeholder {
+      .contact .contact-section .contact-form .contact-input::-webkit-input-placeholder {
         color: #B0B0B0;
         font-family: Base;
         text-transform: uppercase;
         text-align: center;
         opacity: 1; }
-      .contact .contact-form .contact-input:-moz-placeholder {
+      .contact .contact-section .contact-form .contact-input:-moz-placeholder {
         color: #B0B0B0;
         font-family: Base;
         text-transform: uppercase;
         text-align: center;
         opacity: 1; }
-      .contact .contact-form .contact-input::-moz-placeholder {
+      .contact .contact-section .contact-form .contact-input::-moz-placeholder {
         color: #B0B0B0;
         font-family: Base;
         text-transform: uppercase;
         text-align: center;
         opacity: 1; }
-      .contact .contact-form .contact-input:-ms-input-placeholder {
+      .contact .contact-section .contact-form .contact-input:-ms-input-placeholder {
         color: #B0B0B0;
         font-family: Base;
         text-transform: uppercase;
         text-align: center;
         opacity: 1; }
-      .contact .contact-form .contact-input:focus {
-        background-color: rgba(128, 128, 128, 0.75);
+      .contact .contact-section .contact-form .contact-input:focus {
+        background-color: rgba(128, 128, 128, 0.6);
         color: #FFFFFF; }
-        .contact .contact-form .contact-input:focus::-webkit-input-placeholder {
+        .contact .contact-section .contact-form .contact-input:focus::-webkit-input-placeholder {
           color: #FFFFFF; }
-        .contact .contact-form .contact-input:focus:-moz-placeholder {
+        .contact .contact-section .contact-form .contact-input:focus:-moz-placeholder {
           color: #FFFFFF; }
-        .contact .contact-form .contact-input:focus::-moz-placeholder {
+        .contact .contact-section .contact-form .contact-input:focus::-moz-placeholder {
           color: #FFFFFF; }
-        .contact .contact-form .contact-input:focus:-ms-input-placeholder {
+        .contact .contact-section .contact-form .contact-input:focus:-ms-input-placeholder {
           color: #FFFFFF; }
-    @media (min-width: 600px) {
-      .contact .contact-form .name, .contact .contact-form .email {
+    @media (min-width: 670px) {
+      .contact .contact-section .contact-form .name, .contact .contact-section .contact-form .email {
         width: calc(50% - 4px); } }
-    @media (max-width: 600px) {
-      .contact .contact-form .name, .contact .contact-form .email {
+    @media (max-width: 670px) {
+      .contact .contact-section .contact-form .name, .contact .contact-section .contact-form .email {
         width: 100%; } }
-    @media (min-width: 600px) {
-      .contact .contact-form .email {
+    @media (min-width: 670px) {
+      .contact .contact-section .contact-form .email {
         float: right; } }
-    .contact .contact-form .subject, .contact .contact-form .message {
+    .contact .contact-section .contact-form .subject, .contact .contact-section .contact-form .message {
       width: 100%; }
-    .contact .contact-form .message {
+    .contact .contact-section .contact-form .message {
       height: 300px;
       resize: none; }
-    .contact .contact-form .button {
+    .contact .contact-section .contact-form .button {
       display: block;
-      margin: 8px auto;
+      margin: 10px auto 0 auto;
       padding: 0 24px;
       background-color: rgba(255, 255, 255, 0.6); }
 

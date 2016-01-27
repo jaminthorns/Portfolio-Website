@@ -61,7 +61,7 @@ table {
   font-weight: bold; }
 body {
   overflow-y: scroll;
-  margin: 0 20px; }
+  padding: 0 20px; }
 
 #background {
   position: fixed;
@@ -297,7 +297,7 @@ table {
   font-weight: bold; }
 body {
   overflow-y: scroll;
-  margin: 0 20px; }
+  padding: 0 20px; }
 
 #background {
   position: fixed;
@@ -582,15 +582,20 @@ body {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    margin: 0 10px 20px 10px;
     border-radius: 4px;
     background-color: rgba(255, 255, 255, 0.6); }
-    @media (min-width: 880px) {
+    @media (min-width: 510px) {
       .projects .project {
-        flex: 0 1 200px; } }
-    @media (max-width: 880px) {
+        flex: 0 1 200px;
+        margin: 0 10px 20px 10px; } }
+    @media (max-width: 510px) {
       .projects .project {
-        flex: 1 1 calc(50% - 20px); } }
+        flex: 1 1 calc(50% - 20px);
+        margin-bottom: 20px; }
+        .projects .project:nth-child(odd) {
+          margin-right: 10px; }
+        .projects .project:nth-child(even) {
+          margin-left: 10px; } }
     .projects .project .image {
       height: 200px;
       background-size: cover;

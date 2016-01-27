@@ -61,7 +61,7 @@ table {
   font-weight: bold; }
 body {
   overflow-y: scroll;
-  margin: 0 20px; }
+  padding: 0 20px; }
 
 #background {
   position: fixed;
@@ -253,17 +253,17 @@ body {
       .about .about-section .text a {
         text-decoration: none;
         font-weight: bold; }
-    @media (min-width: 800px) {
+    @media (min-width: 870px) {
       .about .about-section .image {
         width: 350px; } }
-    @media (max-width: 800px) {
+    @media (max-width: 870px) {
       .about .about-section .image {
         width: 80%;
         margin-bottom: 12px; } }
-    @media (max-width: 800px) {
+    @media (max-width: 870px) {
       .about .about-section {
         flex-direction: column; } }
-    @media (min-width: 800px) {
+    @media (min-width: 870px) {
       .about .about-section:nth-child(odd) {
         flex-direction: row; }
         .about .about-section:nth-child(odd) .text {
