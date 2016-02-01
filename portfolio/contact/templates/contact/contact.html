@@ -20,7 +20,7 @@
         <div class="links">
             {% for link in links %}
                 <a class="link button" title="{{ link.title }}" target="_blank" href="{{ link.url }}" style="background-color: {{ link.color }}">
-                    <img class="image" src="{% static link.img %}"></img>
+                    <img class="image" src="{% static link.image %}"></img>
                 </a>
             {% endfor %}
         </div>

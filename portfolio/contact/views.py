@@ -4,6 +4,7 @@ from email.mime.text import MIMEText
 from random import choice
 from django.shortcuts import render
 from django.conf import settings
+from .models import *
 from .forms import *
 
 
@@ -19,7 +20,7 @@ def contact(request):
             msg_thread.start()
 
     context = {
-        'links': settings.LINKS,
+        'links': Link.objects.all(),
         'term': internet_term(),
         'contact_form': ContactForm(),
     }
