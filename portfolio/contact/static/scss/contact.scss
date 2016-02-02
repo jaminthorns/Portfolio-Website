@@ -1,6 +1,7 @@
 @import 'base';
 
 $contact-width: 600px;
+$contact-input-width: 36px;
 $wide: "(min-width: " + ($contact-width + $buffer) + ")";
 $narrow: "(max-width: " + ($contact-width + $buffer) + ")";
 
@@ -43,7 +44,7 @@ $narrow: "(max-width: " + ($contact-width + $buffer) + ")";
 
         .contact-form {
             * {
-                height: 36px;
+                height: $contact-input-width;
                 border-style: none;
                 border-radius: 4px;
                 box-sizing: border-box;
@@ -74,6 +75,10 @@ $narrow: "(max-width: " + ($contact-width + $buffer) + ")";
                         color: #FFFFFF;
                     }
                 }
+
+                &:disabled {
+                    background-color:  rgba(#FFFFFF, 0.3);
+                }
             }
 
             .name, .email {
@@ -99,6 +104,25 @@ $narrow: "(max-width: " + ($contact-width + $buffer) + ")";
                 margin: 10px auto 0 auto;
                 padding: 0 24px;
                 background-color: rgba(#FFFFFF, 0.6);
+
+                * {
+                    transition: opacity 0.25s ease;
+                    margin: auto;
+                    display: block;
+                }
+
+                img { opacity: 0; }
+
+                span {
+                    opacity: 1;
+                    margin-top: -$contact-input-width;
+                    line-height: $contact-input-width;
+                }
+
+                &.sent {
+                    img { opacity: 1; }
+                    span { opacity: 0; }
+                }
             }
         }
     }

@@ -5,6 +5,7 @@
 {% block head %}
 <title>Contact</title>
 <link rel="stylesheet" type="text/css" href="{% static "css/contact.css" %}">
+<script src="{% static "js/contact.js" %}"></script>
 {% endblock %}
 
 
@@ -32,7 +33,10 @@
         <form class="contact-form" action="{% url 'contact' %}" method="post">
             {% csrf_token %}
             {{ contact_form }}
-            <input class="button" type="submit" value="Send" />
+            <button class="button">
+                <img src="{% static "svg/check.svg" %}">
+                <span>Send</span>
+            </button>
         </form>
     </div>
 </div>

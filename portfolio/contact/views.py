@@ -1,9 +1,9 @@
-from threading import Thread
 from smtplib import SMTP
 from email.mime.text import MIMEText
 from random import choice
 from django.shortcuts import render
 from django.conf import settings
+from django.http import HttpResponse
 from .models import *
 from .forms import *
 
@@ -16,8 +16,10 @@ def contact(request):
 
         # Send message
         if contact_form.is_valid():
-            msg_thread = Thread(target=send_message, args=(request,))
-            msg_thread.start()
+            send_message(request)
+
+        if request.is_ajax():
+            return HttpResponse('')
 
     context = {
         'links': Link.objects.all(),

@@ -9,7 +9,7 @@ function open_project_detail(event) {
     var container = $('.project-detail-container');
 
     $.ajax('/projects/project_detail/' + project_id)
-    .done(function(project_detail) {
+     .done(function(project_detail) {
         var project_detail = $(project_detail).appendTo(container);
         setup_project_detail(project_detail);
         container.addClass('active');
@@ -23,7 +23,6 @@ function close_project_detail(event) {
     if (container.css('opacity') == 1 &&
         ((event.type == 'click' && target.is('.project-detail-container, .close, .close *')) ||
          (event.type == 'keyup' && event.which == 27))) {
-        console.log(event.which);
         container.css('opacity', '0');
         container.css('pointer-events', 'none');
     }
