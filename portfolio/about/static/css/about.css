@@ -259,7 +259,8 @@ body {
     @media (max-width: 870px) {
       .about .about-section .image {
         width: 80%;
-        margin-bottom: 12px; } }
+        margin-bottom: 12px;
+        min-height: 0; } }
     @media (max-width: 870px) {
       .about .about-section {
         flex-direction: column; } }

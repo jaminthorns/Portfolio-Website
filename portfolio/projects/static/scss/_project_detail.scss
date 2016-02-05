@@ -74,6 +74,7 @@ $short: "(max-height: " + $image-height * 4 ")";
 
     .description {
         overflow-y: auto;
+        flex: 1;
     }
 
     .links {

@@ -528,7 +528,8 @@ body {
       .project-detail .images .image:hover {
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); }
   .project-detail .description {
-    overflow-y: auto; }
+    overflow-y: auto;
+    flex: 1; }
   .project-detail .links {
     display: flex;
     margin-top: 20px; }

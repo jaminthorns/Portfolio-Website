@@ -123,12 +123,13 @@ Triangles.prototype = {
         // Create canvas for gradient
         var canvas_g = document.createElement('canvas');
         var context_g = canvas_g.getContext('2d');
+        var offset = this.size * this.over
 
         // Set size to account for overfill
-        canvas_g.width = window.innerWidth + (this.size * this.over * 2);
-        canvas_g.height = window.innerHeight + (this.size * this.over * 2);
+        canvas_g.width = window.innerWidth + (offset * 2);
+        canvas_g.height = window.innerHeight + (offset * 2);
 
-        var gradient = context_g.createRadialGradient(0, 0, 0, 0, 0, canvas_g.width * 1.5);
+        var gradient = context_g.createLinearGradient(offset, offset, canvas_g.width - offset, canvas_g.height - offset);
 
         for (var i in colors)
             gradient.addColorStop(colors[i].stop, colors[i].color);

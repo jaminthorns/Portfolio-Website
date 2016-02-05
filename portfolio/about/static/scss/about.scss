@@ -35,6 +35,7 @@ $narrow: "(max-width: " + ($about-width + $buffer) + ")";
             @media #{$narrow} {
                 width: 80%;
                 margin-bottom: 12px;
+                min-height: 0;
             }
         }
 
