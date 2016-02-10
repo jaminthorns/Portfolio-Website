@@ -25,7 +25,7 @@ SECRET_KEY = 'br=t(qtc+=jp_1la4u1+uwha91vgnw^ct2k)s02)=+=lvlb6$h'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
