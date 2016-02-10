@@ -183,7 +183,8 @@ body {
     opacity: 0.75; }
 
 .markdown {
-  line-height: 1.5em; }
+  line-height: 1.5em;
+  font-size: 1.25em; }
   .markdown *:first-child {
     margin-top: 0; }
   .markdown *:last-child {
