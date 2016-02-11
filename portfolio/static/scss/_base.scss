@@ -136,7 +136,7 @@ body {
             &.current {
                 font-weight: bold;
 
-                body.js & { transform: translateY(-3px) };
+                body.js & { transform: translateY(-3px); }
 
                 body:not(.js) & {
                     border-style: solid;
