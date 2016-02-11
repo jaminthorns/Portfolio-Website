@@ -13,6 +13,8 @@ $(document).ready(function() {
     $(window).on('resize', function() { move_current(false); });
 
     triangles = new Triangles($('#background')[0], colors, 100, 2, 0.4, 10, 0.15, 25);
+    reveal = {hidden: false, content: false};
+    content = undefined;
 });
 
 function click_section(event) {
@@ -41,6 +43,7 @@ function pop(event) {
 
 function start_change_section(section, push) {
     var home = $('.section.current .logo-first').length > 0;
+    reveal = {hidden: $('.content').hasClass('hidden'), content: false};
 
     // Hide content
     $('.content').addClass('hidden');
@@ -49,6 +52,9 @@ function start_change_section(section, push) {
     // Change current section
     $('.section').removeClass('current');
     section.addClass('current');
+
+    // Load page
+    $.ajax($('.section.current').attr('href')).done(load_new_page);
 
     // Coming from Home
     if (home) {
@@ -66,8 +72,11 @@ function start_change_section(section, push) {
 }
 
 function change_section(event) {
-    if ($('.content').hasClass('hidden'))
-        $.ajax($('.section.current').attr('href')).done(load_new_page);
+    if (event.originalEvent.propertyName == 'opacity' &&
+        $('.content').hasClass('hidden')) {
+        reveal.hidden = true;
+        if (reveal.content) load_content();
+    }
 }
 
 function move_current(animate) {
@@ -100,9 +109,17 @@ function load_new_page(page_html) {
 
     // Load new scripts and links
     $('head').append(head);
+
+    content = page.filter('.content').children();
+
+    reveal.content = true;
+    if (reveal.hidden) load_content();
+}
+
+function load_content() {
     // Load content
     $('.content').empty();
-    $('.content').append(page.filter('.content').children());
+    $('.content').append(content);
     // Show content
     $('.content').removeClass('hidden');
 }
