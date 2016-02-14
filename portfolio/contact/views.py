@@ -32,31 +32,24 @@ def contact(request):
 
 # Send a message via SMTP
 def send_message(request):
-    # Build reply link parameters
-    reply = {
-        'subject': 'RE: ' + request.POST['subject'],
-        'body': '\n\n\nIn response to your message:\n\n{message}{ellipsis}'.format(
-            message=unquote_plus(quote_plus(request.POST['message'])[:1000]),
-            ellipsis=('...' if len(quote_plus(request.POST['message'])) > 1000 else ''))
-    }
-
-    # Build reply link
-    reply_link = '<a href="mailto:{email}?{reply}">{email}</a>'.format(
-        email=request.POST['email'], reply=urlencode(reply))
+    # Format message for HTML
+    body = request.POST['message'].replace('\n', '<br>')
 
     # Build message
     message = """
     <html>
-        <p>From: {reply}</p>
-        <pre>{message}</pre>
+        <p>{body}</p>
     </html>
-    """.format(reply=reply_link, message=request.POST['message'])
+    """.format(name=request.POST['name'], email=request.POST['email'], body=body)
 
     # Build email
     msg = MIMEText(message, 'html')
     msg['Subject'] = request.POST['subject']
-    msg['From'] = 'contact@' + request.get_host()
+    msg['Reply-To'] = request.POST['email']
     msg['To'] = settings.EMAIL
+    msg['From'] = '{name} <contact@{host}>'.format(
+        name=request.POST['name'],
+        host=request.get_host().replace('www.', ''))
 
     # Send email
     smtp = SMTP('localhost')
