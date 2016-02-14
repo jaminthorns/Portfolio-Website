@@ -2,7 +2,6 @@ $(document).ready(function() {
     $('body').on('click', '.section', click_section);
     $('body').on('transitionend', '.content', change_section);
     $(window).on('popstate', pop);
-    $(window).on('resize', function() { move_current(false); });
 
     var colors = eval($('.section.current').attr('colors'));
 
@@ -74,13 +73,12 @@ function change_section(event) {
 }
 
 function move_current(animate) {
-    var section = $('.section.current');
     var current = $('#current');
-    var left = section.offset().left - section.parent().offset().left;
+    var position = $('.current').index('.sections .section');
 
     if (!animate) current.addClass('notransition');
 
-    current.css('left', left);
+    current.attr('position', position);
 
     if (!animate) {
         current[0].offsetHeight;
