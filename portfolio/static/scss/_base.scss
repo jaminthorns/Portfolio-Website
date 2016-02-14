@@ -159,11 +159,11 @@ body {
         width: calc(100% / 3);
         height: 3px;
         background-color: #000000;
-        transition: transform 0.25s ease, opacity 0.25s ease;
+        transition: left 0.25s ease, opacity 0.25s ease;
 
-        &[position="0"] { transform: translateX(0); }
-        &[position="1"] { transform: translateX(100%); }
-        &[position="2"] { transform: translateX(200%); }
+        &[position="0"] { left: 0; }
+        &[position="1"] { left: 33.33%; }
+        &[position="2"] { left: 66.66%; }
     }
 }
 

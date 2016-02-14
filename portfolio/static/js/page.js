@@ -76,12 +76,11 @@ function change_section(event) {
 function move_current(animate) {
     var section = $('.section.current');
     var current = $('#current');
-    var translate = ((section.offset().left - section.parent().offset().left) /
-                     section.width()) * 100;
+    var left = section.offset().left - section.parent().offset().left;
 
     if (!animate) current.addClass('notransition');
 
-    current.css('transform', 'translateX(' + translate + '%)');
+    current.css('left', left);
 
     if (!animate) {
         current[0].offsetHeight;
