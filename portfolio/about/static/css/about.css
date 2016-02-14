@@ -232,7 +232,7 @@ body {
 .notransition {
   transition: none !important; }
 
-.js .hidden {
+.hidden {
   opacity: 0 !important; }
 
 .about {

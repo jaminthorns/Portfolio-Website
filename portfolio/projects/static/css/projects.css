@@ -232,7 +232,7 @@ body {
 .notransition {
   transition: none !important; }
 
-.js .hidden {
+.hidden {
   opacity: 0 !important; }
 
 html, body, div, span, applet, object, iframe,
@@ -469,7 +469,7 @@ body {
 .notransition {
   transition: none !important; }
 
-.js .hidden {
+.hidden {
   opacity: 0 !important; }
 
 .project-detail {
