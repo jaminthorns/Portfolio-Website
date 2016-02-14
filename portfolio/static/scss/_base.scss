@@ -135,13 +135,7 @@ body {
 
             &.current {
                 font-weight: bold;
-
-                body.js & { transform: translateY(-3px); }
-
-                body:not(.js) & {
-                    border-style: solid;
-                    border-bottom-width: 3px;
-                }
+                transform: translateY(-3px);
             }
 
             span {
@@ -160,12 +154,16 @@ body {
         }
     }
 
-    body.js & #current {
+    #current {
         position: relative;
         width: calc(100% / 3);
         height: 3px;
         background-color: #000000;
-        transition: transform 0.25s ease, opacity 0.25s ease;
+        transition: left 0.25s ease, opacity 0.25s ease;
+
+        &[position="0"] { left: 0; }
+        &[position="1"] { left: 33.33%; }
+        &[position="2"] { left: 66.66%; }
     }
 }
 

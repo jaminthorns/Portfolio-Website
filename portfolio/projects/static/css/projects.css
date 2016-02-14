@@ -141,12 +141,8 @@ body {
       text-decoration: none;
       transition: transform 0.25s ease; }
       .header .sections .section.current {
-        font-weight: bold; }
-        body.js .header .sections .section.current {
-          transform: translateY(-3px); }
-        body:not(.js) .header .sections .section.current {
-          border-style: solid;
-          border-bottom-width: 3px; }
+        font-weight: bold;
+        transform: translateY(-3px); }
       .header .sections .section span {
         margin: auto;
         font-family: Montserrat;
@@ -160,12 +156,18 @@ body {
         .header .sections .section span em {
           font-size: 1.25em;
           font-family: Montserrat; }
-  body.js .header #current {
+  .header #current {
     position: relative;
     width: calc(100% / 3);
     height: 3px;
     background-color: #000000;
-    transition: transform 0.25s ease, opacity 0.25s ease; }
+    transition: left 0.25s ease, opacity 0.25s ease; }
+    .header #current[position="0"] {
+      left: 0; }
+    .header #current[position="1"] {
+      left: 33.33%; }
+    .header #current[position="2"] {
+      left: 66.66%; }
 
 .content {
   transition: transform 0.25s ease, opacity 0.25s ease; }
@@ -378,12 +380,8 @@ body {
       text-decoration: none;
       transition: transform 0.25s ease; }
       .header .sections .section.current {
-        font-weight: bold; }
-        body.js .header .sections .section.current {
-          transform: translateY(-3px); }
-        body:not(.js) .header .sections .section.current {
-          border-style: solid;
-          border-bottom-width: 3px; }
+        font-weight: bold;
+        transform: translateY(-3px); }
       .header .sections .section span {
         margin: auto;
         font-family: Montserrat;
@@ -397,12 +395,18 @@ body {
         .header .sections .section span em {
           font-size: 1.25em;
           font-family: Montserrat; }
-  body.js .header #current {
+  .header #current {
     position: relative;
     width: calc(100% / 3);
     height: 3px;
     background-color: #000000;
-    transition: transform 0.25s ease, opacity 0.25s ease; }
+    transition: left 0.25s ease, opacity 0.25s ease; }
+    .header #current[position="0"] {
+      left: 0; }
+    .header #current[position="1"] {
+      left: 33.33%; }
+    .header #current[position="2"] {
+      left: 66.66%; }
 
 .content {
   transition: transform 0.25s ease, opacity 0.25s ease; }

@@ -1,16 +1,10 @@
 $(document).ready(function() {
-    $('body').addClass('js');
-
-    var current = $('.section.current');
-    var colors = eval(current.attr('colors'));
-
-    document.title = current.attr('title');
-    move_current(false);
-
     $('body').on('click', '.section', click_section);
     $('body').on('transitionend', '.content', change_section);
     $(window).on('popstate', pop);
     $(window).on('resize', function() { move_current(false); });
+
+    var colors = eval($('.section.current').attr('colors'));
 
     triangles = new Triangles($('#background')[0], colors, 100, 2, 0.4, 10, 0.15, 25);
     reveal = {hidden: false, content: false};
@@ -82,11 +76,11 @@ function change_section(event) {
 function move_current(animate) {
     var section = $('.section.current');
     var current = $('#current');
-    var translate = section.offset().left - section.parent().offset().left;
+    var left = section.offset().left - section.parent().offset().left;
 
     if (!animate) current.addClass('notransition');
 
-    current.css('transform', 'translateX(' + translate + 'px)');
+    current.css('left', left);
 
     if (!animate) {
         current[0].offsetHeight;

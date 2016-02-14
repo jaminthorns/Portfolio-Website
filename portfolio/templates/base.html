@@ -32,7 +32,7 @@
             <a title="Contact" class="section {% block current-contact %}{% endblock %}" href="{% url 'contact' %}" colors="[{stop: 0, color: '#f2cb8f'}, {stop: 0.5, color: '#e6aab6'}, {stop: 1, color: '#a77ef2'}]"><span><em>C</em>ontact</span></a>
         </ul>
 
-        <div id="current" class="{% block hidden %}{% endblock %}"></div>
+        <div id="current" class="{% block hidden %}{% endblock %}" position="{% block position %}{% endblock %}"></div>
     </div>
 
     <div class="content">
