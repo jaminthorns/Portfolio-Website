@@ -88,18 +88,12 @@ function move_current(animate) {
 
 function load_new_page(page_html) {
     var page = $(page_html);
-    var urls = {'SCRIPT': 'src', 'LINK': 'href'};
 
-    // Get scripts and links that are not already in head
-    var head = page.filter('script, link').filter(function (index, element) {
-        var tag = element.tagName;
-        var url = $(element).attr(urls[tag]);
+    // Get scripts that are not already in head
+    var head = page.filter('script').filter(function (index, element) {
+        return $('head [src="' + $(element).attr('src') + '"]').length == 0; });
 
-        // Check if script or link already exists in head
-        return $('head [' + urls[tag] +'="' + url + '"]').length == 0;
-    });
-
-    // Load new scripts and links
+    // Load new scripts
     $('head').append(head);
 
     content = page.filter('.content').children();

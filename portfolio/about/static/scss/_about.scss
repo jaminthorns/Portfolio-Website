@@ -1,5 +1,3 @@
-@import 'base';
-
 $about-width: 800px;
 $wide: "(min-width: " + ($about-width + $buffer) + ")";
 $narrow: "(max-width: " + ($about-width + $buffer) + ")";
