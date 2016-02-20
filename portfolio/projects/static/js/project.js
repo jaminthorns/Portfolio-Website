@@ -25,6 +25,8 @@ function close_project_detail(event) {
          (event.type == 'keyup' && event.which == 27))) {
         container.css('opacity', '0');
         container.css('pointer-events', 'none');
+
+        $(window).off('resize');
     }
     else if (event.type == 'transitionend' && container.css('opacity') == 0) {
         container.removeAttr('style');

@@ -6,9 +6,8 @@ function setup_project_detail(project_detail) {
     center_images(project_images.eq($('.images').attr('active-image')));
 
     $('.view-image').on('click transitionend', close_view_image);
-    $(".nano").nanoScroller({ flash: true });
-
     $(window).on('resize', function() { center_images(project_images.eq($('.images').attr('active-image'))); });
+    $(".nano").nanoScroller({ flash: true });
 }
 
 function select_active_image(event) {
